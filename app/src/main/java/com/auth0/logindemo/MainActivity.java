@@ -25,8 +25,8 @@ public class MainActivity extends AppCompatActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
 
-        final TextView logo = (TextView) findViewById(R.id.logo);
-        logo.setText("activity started!");
+        //final TextView logo = (TextView) findViewById(R.id.logo);
+        //logo.setText("activity started!");
         Log.i(TAG, "activity started!");
 
 
@@ -42,7 +42,7 @@ public class MainActivity extends AppCompatActivity {
                         // Display the first 500 characters of the response string.
                         //mTextView.setText("Response is: "+ response.substring(0,500));
                         Log.e(TAG, response);
-                        logo.setText(response);
+                        //logo.setText(response);
                     }
                 }, new Response.ErrorListener() {
             @Override
