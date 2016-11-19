@@ -1,7 +1,11 @@
 <resources>
     <string name="app_name">01-Auth0LoginDemo</string>
     <string name="welcome_message">Welcome To Your App</string>
-
     <string name="auth0_client_id">NaFSNsdPBEqD6hbXEuJyEJTg9FZqcail</string>
     <string name="auth0_domain">togetherapp.auth0.com</string>
+
+    <!--First Time Setup-->
+    <string name="fts_title">Come Together</string>
+    <string name="fts_description">Select calendars that you want to mark busy</string>
+    <string name="fts_button_text">Submit</string>
 </resources>
