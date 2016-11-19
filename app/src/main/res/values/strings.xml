@@ -1,6 +1,8 @@
 <resources>
-    <string name="app_name">01-Auth0LoginDemo</string>
-    <string name="welcome_message">Welcome To Your App</string>
+    <string name="app_name">Together</string>
+    <string name="welcome_message">Bringing people together.</string>
+
+
     <string name="auth0_client_id">NaFSNsdPBEqD6hbXEuJyEJTg9FZqcail</string>
     <string name="auth0_domain">togetherapp.auth0.com</string>
 

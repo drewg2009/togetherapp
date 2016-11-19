@@ -8,7 +8,7 @@
 
     <application
         android:allowBackup="true"
-        android:icon="@mipmap/ic_launcher"
+        android:icon="@mipmap/t_launcher"
         android:label="@string/app_name"
         android:supportsRtl="true"
         android:theme="@style/AppTheme"
@@ -24,6 +24,7 @@
         </activity>
         <activity android:name=".LoginActivity" />
         <activity android:name=".MainActivity" />
+
         <activity
             android:name="com.auth0.android.lock.LockActivity"
             android:label="@string/app_name"
