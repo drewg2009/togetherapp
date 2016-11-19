@@ -39,10 +39,10 @@ public class MainActivity extends AppCompatActivity {
 
         mRecyclerView = (RecyclerView) findViewById(R.id.recyclerView);
         mLayoutManager = new LinearLayoutManager(MainActivity.this);
-        mRecyclerView.setLayoutManager(mLayoutManager);
+//        mRecyclerView.setLayoutManager(mLayoutManager);
 //Adapter is created in the last step
         mAdapter = new CustomAdapter(mDataset, mDataSetTypes);
-        mRecyclerView.setAdapter(mAdapter);
+//        mRecyclerView.setAdapter(mAdapter);
 
         //final TextView logo = (TextView) findViewById(R.id.logo);
         //logo.setText("activity started!");
