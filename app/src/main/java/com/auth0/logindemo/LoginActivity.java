@@ -14,6 +14,8 @@ import com.auth0.android.result.Credentials;
 
 //This comment was made by Alex (username MasCabeza)
 
+//rev wuz here
+
 public class LoginActivity extends Activity {
 
     private Lock mLock;
