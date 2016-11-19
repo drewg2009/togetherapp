@@ -12,6 +12,7 @@ import com.auth0.android.lock.LockCallback;
 import com.auth0.android.lock.utils.LockException;
 import com.auth0.android.result.Credentials;
 
+//This comment was made by Alex (username MasCabeza)
 
 public class LoginActivity extends Activity {
 
