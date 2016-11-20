@@ -1,5 +1,6 @@
 <?xml version="1.0" encoding="utf-8"?>
 <RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
@@ -11,13 +12,36 @@
     android:background="@color/colorPrimaryDark"
     tools:context=".MainActivity">
 
-    <android.support.v7.widget.RecyclerView
-        android:id="@+id/recyclerView"
+    <android.support.design.widget.CoordinatorLayout
         android:layout_width="match_parent"
+<<<<<<< HEAD
         android:layout_height="match_parent"
         android:layout_alignParentTop="true"
         android:layout_alignParentLeft="true"
         android:layout_alignParentStart="true"
         android:layout_marginTop="0dp" />
+=======
+        android:layout_height="match_parent">
+
+        <android.support.v7.widget.RecyclerView
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:id="@+id/recyclerView" />
+
+        <android.support.design.widget.FloatingActionButton
+            android:layout_width="56dp"
+            android:clickable="true"
+            app:fabSize="mini"
+            app:srcCompat="@mipmap/t_launcher"
+            android:id="@+id/actionButton"
+            android:layout_row="0"
+            android:layout_column="5"
+            android:layout_gravity="bottom|right"
+            android:layout_margin="20dp"
+            android:layout_height="56dp"
+            app:backgroundTint="@android:color/white" />
+
+    </android.support.design.widget.CoordinatorLayout>
+>>>>>>> a0212c2010351201c66c42dd0a0594db2fb7e1e8
 
 </RelativeLayout>
