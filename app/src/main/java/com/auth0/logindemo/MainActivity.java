@@ -1,5 +1,6 @@
 package com.auth0.logindemo;
 
+import android.content.Intent;
 import android.content.SharedPreferences;
 import android.os.Bundle;
 import android.preference.PreferenceManager;
@@ -8,7 +9,6 @@ import android.support.v7.app.AppCompatActivity;
 import android.support.v7.widget.LinearLayoutManager;
 import android.support.v7.widget.RecyclerView;
 import android.util.Log;
-import android.widget.SeekBar;
 import android.view.View;
 
 import com.android.volley.AuthFailureError;
@@ -49,6 +49,9 @@ public class MainActivity extends AppCompatActivity {
     String currentEventString = "";
 
     private FloatingActionButton actionButton;
+    private FloatingActionButton settingsButton;
+    private FloatingActionButton myEventsButton;
+    private FloatingActionButton newEventButton;
     private boolean menuState = false;
 
     @Override
@@ -82,6 +85,9 @@ public class MainActivity extends AppCompatActivity {
         Log.i(TAG, "fetched user id: " + id);
 
         actionButton = (FloatingActionButton) findViewById(R.id.actionButton);
+        settingsButton = (FloatingActionButton) findViewById(R.id.settingsButton);
+        myEventsButton = (FloatingActionButton) findViewById(R.id.myEvents);
+        newEventButton = (FloatingActionButton) findViewById(R.id.newEvent);
         actionButton.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
@@ -93,6 +99,32 @@ public class MainActivity extends AppCompatActivity {
                 }
             }
         });
+
+        final Intent settings = new Intent(this, Settings.class);
+        settingsButton.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                startActivity(settings);
+            }
+        });
+
+        final Intent myEvents = new Intent(this, MyEvents.class);
+        myEventsButton.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                startActivity(myEvents);
+            }
+        });
+
+        final Intent createEvent = new Intent(this, CreateEvent.class);
+        newEventButton.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                startActivity(createEvent);
+            }
+        });
+
+
 
 
 
