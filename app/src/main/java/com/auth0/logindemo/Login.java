@@ -78,10 +78,20 @@ public class Login extends AppCompatActivity {
         RequestQueue queue = Volley.newRequestQueue(this);
         String url = "http://phplaravel-19273-43928-180256.cloudwaysapps.com/post/users/login";
 
+        final Intent main=new Intent(this, MainActivity.class);
         StringRequest stringRequest = new StringRequest(Request.Method.POST, url, new Response.Listener<String>() {
             @Override
             public void onResponse(String response) {
                 Log.d(TAG, "Login Response: " + response.toString());
+
+                if(response.equals("true")){
+                    startActivity(main);
+                    finish();
+                }
+                else if(response.equals("false")){
+                    Log.d(TAG, "Login failed: " + response.toString());
+                }
+
 
             }
         }, new Response.ErrorListener() {

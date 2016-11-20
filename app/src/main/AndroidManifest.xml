@@ -16,45 +16,22 @@
         <activity
             android:name=".MainActivity"
             android:noHistory="true">
+        </activity>
+
+
+        <!-- Auth0 Lock End -->
+
+        <activity android:name=".Login" >
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />
 
                 <category android:name="android.intent.category.LAUNCHER" />
             </intent-filter>
         </activity>
-
-        <!-- <activity -->
-        <!-- android:name="com.auth0.android.lock.LockActivity" -->
-        <!-- android:label="@string/app_name" -->
-        <!-- android:launchMode="singleTask" -->
-        <!-- android:screenOrientation="portrait" -->
-        <!-- android:theme="@style/Lock.Theme"> -->
-        <!-- <intent-filter> -->
-        <!-- <action android:name="android.intent.action.VIEW" /> -->
-
-
-        <!-- <category android:name="android.intent.category.DEFAULT" /> -->
-        <!-- <category android:name="android.intent.category.BROWSABLE" /> -->
-
-
-        <!-- <data -->
-        <!-- android:host="togetherapp.auth0.com" -->
-        <!-- android:pathPrefix="/android/com.auth0.logindemo/callback" -->
-        <!-- android:scheme="https" /> -->
-        <!-- </intent-filter> -->
-        <!-- </activity> -->
-        <!-- <activity -->
-        <!-- android:name="com.auth0.android.provider.WebAuthActivity" -->
-        <!-- android:theme="@style/Lock.Theme" /> -->
-
-
-        <!-- Auth0 Lock End -->
-
-        <activity android:name=".Login" />
         <activity android:name=".Settings" />
         <activity android:name=".Edit" />
         <activity android:name=".CreateEvent" />
-        <activity android:name=".Signup"></activity>
+        <activity android:name=".Signup"/>
     </application>
 
 </manifest>

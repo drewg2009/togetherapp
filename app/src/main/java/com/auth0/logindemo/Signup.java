@@ -51,7 +51,7 @@ public class Signup extends AppCompatActivity {
 
         final String fullName = fullNameText.getText().toString();
         final String email = emailText.getText().toString();
-        final String password = passwordText.toString();
+        final String password = passwordText.getText().toString();
         final String broadcaster = "" + signupBroadcasterBox.isChecked();
 
         // Instantiate the RequestQueue.
@@ -64,6 +64,7 @@ public class Signup extends AppCompatActivity {
             @Override
             public void onResponse(String response) {
                 Log.d(TAG, "Signup Response: " + response.toString());
+                finish();
                 startActivity(i);
 
             }
