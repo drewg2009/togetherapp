@@ -22,8 +22,7 @@ import java.util.HashMap;
 import java.util.Map;
 
 public class CreateEvent extends AppCompatActivity {
-
-    private static int NUM_PERIODS = 392;
+    
     static String TAG = "CREATE_EVENT";
 
     private static int NUM_PERIODS = 392;  //7 * 56 = 392 1's and 0's in each string
