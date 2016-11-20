@@ -1,15 +1,30 @@
 package com.auth0.logindemo;
 
+import android.content.Intent;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
 import android.util.Log;
 import android.util.Pair;
+import android.view.View;
+import android.widget.Button;
+import android.widget.EditText;
+
+import com.android.volley.AuthFailureError;
+import com.android.volley.Request;
+import com.android.volley.RequestQueue;
+import com.android.volley.Response;
+import com.android.volley.VolleyError;
+import com.android.volley.toolbox.StringRequest;
+import com.android.volley.toolbox.Volley;
 
 import java.util.ArrayList;
+import java.util.HashMap;
+import java.util.Map;
 
 public class CreateEvent extends AppCompatActivity {
 
     private static int NUM_PERIODS = 392;
+    static String TAG = "CREATE_EVENT";
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -17,6 +32,26 @@ public class CreateEvent extends AppCompatActivity {
 
         setContentView(R.layout.activity_create_event);
         //set up sample strings
+
+        Button generateButton = (Button)findViewById(R.id.generateButton);
+        final EditText inviteesInput = (EditText)findViewById(R.id.inviteeBox);
+
+        generateButton.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                String inputString = inviteesInput.getText().toString();
+                String [] splitString = inputString.split(", ");
+                String personOne =  splitString[0];
+                String personTwo = splitString[1];
+                Log.i(TAG,personOne);
+                Log.i(TAG,personTwo);
+                String personOneCalendarString = getCalendarString(personOne);
+                String personTwoCalendarString = getCalendarString(personTwo);
+
+
+            }
+        });
+
 
         int i=0;
         String one = "00001000110011100000111110000011111000001111100000111000" +
@@ -81,5 +116,39 @@ public class CreateEvent extends AppCompatActivity {
             }
         }
         return openings;
+    }
+
+    private String getCalendarString(final String nameOfPerson){
+        String calendarValue = "";
+
+        // Instantiate the RequestQueue.
+        RequestQueue queue = Volley.newRequestQueue(this);
+        String url = "http://phplaravel-19273-43928-180256.cloudwaysapps.com/post/user/singleUser";
+
+
+        StringRequest stringRequest = new StringRequest(Request.Method.POST, url, new Response.Listener<String>() {
+            @Override
+            public void onResponse(String response) {
+                Log.d(TAG, "Calendar String Retrieval Response: " + response.toString());
+
+            }
+        }, new Response.ErrorListener() {
+            @Override
+            public void onErrorResponse(VolleyError volleyError) {
+                Log.i(TAG,"Volley Error ................." + volleyError.getMessage());
+            }
+        }) {
+            @Override
+            protected Map<String, String> getParams() throws AuthFailureError {
+                Map<String, String> params = new HashMap<String, String>();
+                params.put("name", nameOfPerson);
+                return params;
+            }
+        };
+
+        queue.add(stringRequest);
+
+
+        return calendarValue;
     }
 }
