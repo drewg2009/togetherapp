@@ -56,10 +56,14 @@ public class MainActivity extends AppCompatActivity {
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
-        invitedDB.add(new Entry("Meet for Lunch at Cafe", "", "", "", "", "", "", "", "", "", "u"));
-        invitedDB.add(new Entry("Lab Work", "", "", "", "", "", "", "", "", "", " ")); //remove soon
-        invitedDB.add(new Entry("Broadcast", "", "", "", "", "", "", "", "", "", "a"));
-        invitedDB.add(new Entry("Hackathon", "", "", "", "", "", "", "", "", "", " "));
+        invitedDB.add(new Entry("Meet for Lunch at Cafe", "", "", "", "", "3", "", "", "", "", "u"));
+        invitedDB.add(new Entry("Lab Work", "", "", "", "", "8", "", "", "", "", " ")); //remove soon
+        invitedDB.add(new Entry("Broadcast", "", "", "", "", "11", "", "", "", "", "a"));
+        invitedDB.add(new Entry("Hackathon", "", "", "", "", "13", "", "", "", "", " "));
+        invitedDB.add(new Entry("Open Source Club", "", "", "", "", "17", "", "", "", "", "u"));
+        invitedDB.add(new Entry("Dinner with Danielle", "", "", "", "", "21", "", "", "", "", "u")); //remove soon
+        invitedDB.add(new Entry("Rave", "", "", "", "", "24", "", "", "", "", "u"));
+        invitedDB.add(new Entry("Hiking Trip", "", "", "", "", "27", "", "", "", "", " "));
 
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);

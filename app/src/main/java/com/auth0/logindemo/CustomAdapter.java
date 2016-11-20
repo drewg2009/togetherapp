@@ -24,28 +24,34 @@ public class CustomAdapter extends RecyclerView.Adapter<CustomAdapter.ViewHolder
 
     public class CollabHolder extends ViewHolder {
         TextView title;
+        TextView day;
 
         public CollabHolder(View v) {
             super(v);
             this.title = (TextView) v.findViewById(R.id.event_Title);
+            this.day = (TextView) v.findViewById(R.id.dayNum);
         }
     }
 
     public class AcceptedHolder extends ViewHolder {
         TextView title;
+        TextView day;
 
         public AcceptedHolder(View v) {
             super(v);
             this.title = (TextView) v.findViewById(R.id.event_Title);
+            this.day = (TextView) v.findViewById(R.id.dayNum);
         }
     }
 
     public class BroadcastHolder extends ViewHolder {
         TextView title;
+        TextView day;
 
         public BroadcastHolder(View v) {
             super(v);
             this.title = (TextView) v.findViewById(R.id.event_Title);
+            this.day = (TextView) v.findViewById(R.id.dayNum);
         }
     }
 
@@ -81,16 +87,20 @@ public class CustomAdapter extends RecyclerView.Adapter<CustomAdapter.ViewHolder
             CollabHolder holder = (CollabHolder) viewHolder;
             Entry data = dbService.get(position);
             holder.title.setText(data.title);
+            holder.day.setText(data.timestamp);
         }
         else if (viewHolder.getItemViewType() == DONE) {
             AcceptedHolder holder = (AcceptedHolder) viewHolder;
             Entry data = dbService.get(position);
             holder.title.setText(data.title);
+            holder.day.setText(data.timestamp);
+
         }
         else {
             BroadcastHolder holder = (BroadcastHolder) viewHolder;
             Entry data = dbService.get(position);
             holder.title.setText(data.title);
+            holder.day.setText(data.timestamp);
         }
     }
 
