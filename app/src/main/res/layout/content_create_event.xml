@@ -17,7 +17,7 @@
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_marginBottom="17dp"
-        android:id="@+id/button"
+        android:id="@+id/generateButton"
         android:layout_alignParentBottom="true"
         android:layout_centerHorizontal="true" /><![CDATA[
 
@@ -103,7 +103,14 @@
         android:id="@+id/editText2"
         android:layout_below="@+id/seekBar"
         android:layout_alignParentLeft="true"
+<<<<<<< HEAD
         android:layout_alignParentStart="true" />
+=======
+        android:layout_alignParentStart="true"
+        android:id="@+id/inviteeBox"
+        android:layout_alignParentRight="true"
+        android:layout_alignParentEnd="true" />
+>>>>>>> 77ccef5ab24221aaa974cc442ad99a03ed1378e2
 
     <NumberPicker
         android:layout_width="wrap_content"

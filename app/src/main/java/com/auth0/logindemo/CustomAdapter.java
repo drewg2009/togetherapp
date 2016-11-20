@@ -10,13 +10,11 @@ import android.widget.TextView;
 public class CustomAdapter extends RecyclerView.Adapter<CustomAdapter.ViewHolder> {
     private static final String TAG = "CustomAdapter";
 
-    private String[] mDataSet;
-    private int[] mDataSetTypes;
+    private DataService dbService = new DataService();
 
     public static final int INBOUND = 0;
     public static final int DONE = 1;
     public static final int BROADCAST = 2;
-
 
     public static class ViewHolder extends RecyclerView.ViewHolder {
         public ViewHolder(View v) {
@@ -25,11 +23,11 @@ public class CustomAdapter extends RecyclerView.Adapter<CustomAdapter.ViewHolder
     }
 
     public class CollabHolder extends ViewHolder {
-        TextView temp;
+        TextView title;
 
         public CollabHolder(View v) {
             super(v);
-            this.temp = (TextView) v.findViewById(R.id.event_Title);
+            this.title = (TextView) v.findViewById(R.id.event_Title);
         }
     }
 
@@ -53,14 +51,14 @@ public class CustomAdapter extends RecyclerView.Adapter<CustomAdapter.ViewHolder
 
 
 
-    public CustomAdapter(String[] dataSet, int[] dataSetTypes) {
-        mDataSet = dataSet;
-        mDataSetTypes = dataSetTypes;
+    public CustomAdapter(DataService in) {
+        dbService = in;
     }
 
     @Override
     public ViewHolder onCreateViewHolder(ViewGroup viewGroup, int viewType) {
         View v;
+
         if (viewType == INBOUND) {
             v = LayoutInflater.from(viewGroup.getContext())
                     .inflate(R.layout.pending_invite_card, viewGroup, false);
@@ -83,25 +81,29 @@ public class CustomAdapter extends RecyclerView.Adapter<CustomAdapter.ViewHolder
     public void onBindViewHolder(ViewHolder viewHolder, final int position) {
         if (viewHolder.getItemViewType() == INBOUND) {
             CollabHolder holder = (CollabHolder) viewHolder;
-            holder.temp.setText(mDataSet[position]);
+            Entry data = dbService.get(position);
+            holder.title.setText(data.title);
         }
         else if (viewHolder.getItemViewType() == DONE) {
             AcceptedHolder holder = (AcceptedHolder) viewHolder;
-            holder.temp.setText(mDataSet[position]);
+            Entry data = dbService.get(position);
+            holder.temp.setText(data.title);
         }
         else {
             BroadcastHolder holder = (BroadcastHolder) viewHolder;
-            holder.temp.setText(mDataSet[position]);
+            Entry data = dbService.get(position);
+            holder.temp.setText(data.title);
         }
     }
 
     @Override
     public int getItemCount() {
-        return mDataSet.length;
+        return dbService.size();
     }
 
     @Override
     public int getItemViewType(int position) {
-        return mDataSetTypes[position];
+        return dbService.displayType(position);
+
     }
 }
