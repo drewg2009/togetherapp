@@ -60,7 +60,7 @@ public class MainActivity extends AppCompatActivity {
         //final TextView logo = (TextView) findViewById(R.id.logo);
         //logo.setText("activity started!");
         Log.i(TAG, "activity started!");
-        
+
         setTitle("Together | Dashboard");
 
         preferences = PreferenceManager.getDefaultSharedPreferences(this);

@@ -15,6 +15,7 @@
     <android.support.design.widget.CoordinatorLayout
         android:layout_width="match_parent"
         android:layout_height="match_parent">
+
         <android.support.v7.widget.RecyclerView
             android:layout_width="match_parent"
             android:layout_height="match_parent"
@@ -24,14 +25,63 @@
             android:layout_width="56dp"
             android:clickable="true"
             app:fabSize="mini"
-            app:srcCompat="@drawable/com_auth0_lock_ic_submit"
+            app:srcCompat="@android:drawable/ic_menu_add"
             android:id="@+id/actionButton"
             android:layout_row="0"
             android:layout_column="5"
             android:layout_gravity="bottom|right"
             android:layout_margin="20dp"
             android:layout_height="56dp"
-            app:backgroundTint="@color/cardview_dark_background" />
+            app:backgroundTint="@color/cardview_dark_background"
+            app:rippleColor="?attr/actionModeSplitBackground" />
+
+        <android.support.design.widget.FloatingActionButton
+            android:layout_height="40dp"
+            android:clickable="true"
+            app:fabSize="mini"
+            app:srcCompat="@android:drawable/ic_menu_help"
+            android:id="@+id/settingsButton"
+            app:layout_anchor="@+id/recyclerView"
+            app:layout_anchorGravity="bottom|right"
+            android:layout_gravity="bottom|right"
+            android:background="@color/cardview_dark_background"
+            app:backgroundTint="@color/cardview_dark_background"
+            android:layout_marginRight="28dp"
+            android:layout_marginBottom="86dp"
+            android:layout_width="40dp"
+            app:rippleColor="?attr/actionModeSplitBackground" />
+
+        <android.support.design.widget.FloatingActionButton
+            android:layout_height="40dp"
+            android:clickable="true"
+            app:fabSize="mini"
+            app:srcCompat="@android:drawable/ic_menu_compass"
+            android:id="@+id/myEvents"
+            app:layout_anchor="@+id/recyclerView"
+            app:layout_anchorGravity="bottom|right"
+            android:layout_gravity="bottom|right"
+            android:background="@color/cardview_dark_background"
+            app:backgroundTint="@color/cardview_dark_background"
+            android:layout_marginRight="28dp"
+            android:layout_marginBottom="136dp"
+            android:layout_width="40dp"
+            app:rippleColor="?attr/actionModeSplitBackground" />
+
+        <android.support.design.widget.FloatingActionButton
+            android:layout_height="40dp"
+            android:clickable="true"
+            app:fabSize="mini"
+            app:srcCompat="@android:drawable/ic_menu_edit"
+            android:id="@+id/newEvent"
+            app:layout_anchor="@+id/recyclerView"
+            app:layout_anchorGravity="bottom|right"
+            android:layout_gravity="bottom|right"
+            android:background="@color/cardview_dark_background"
+            app:backgroundTint="@color/cardview_dark_background"
+            android:layout_marginRight="28dp"
+            android:layout_marginBottom="186dp"
+            android:layout_width="40dp"
+            app:rippleColor="?attr/actionModeSplitBackground" />
 
     </android.support.design.widget.CoordinatorLayout>
 
