@@ -109,6 +109,8 @@ public class MainActivity extends AppCompatActivity {
                             //stored in global currentEventString variable
                             getEvent(Integer.parseInt(event_id));
 
+                            invitedDB.importEvent(currentEventString);
+
                             Log.i(TAG, currentEventString);
 
                         }
