@@ -7,17 +7,17 @@ import java.util.ArrayList;
  */
 
 public class DataService {
-    public ArrayList<CardObj> list;
+    public ArrayList<Entry> list;
 
     public DataService() {
-        this.list = new ArrayList<CardObj>();
+        this.list = new ArrayList<Entry>();
     }
 
     public DataService(int size) {
-        this.list = new ArrayList<CardObj>(size);
+        this.list = new ArrayList<Entry>(size);
     }
 
-    void add(CardObj in) {
+    void add(Entry in) {
         this.list.add(in);
     }
 
@@ -35,13 +35,13 @@ public class DataService {
         return this.list.size();
     }
 
-    CardObj get(int index) {
+    Entry get(int index) {
         return this.list.get(index);
     }
 
 }
 
-class CardObj {
+class Entry {
 
     public String title = "title here";
     public String inviter_name;
@@ -55,9 +55,9 @@ class CardObj {
     public String seen = "u";
     public String status= "u";
 
-    public CardObj(String title, String inviter_name, String inviter_id, String invitee_name,
-                   String invitee_id, String timestamp, String description, String start_time,
-                   String end_time, String seen, String status) {
+    public Entry(String title, String inviter_name, String inviter_id, String invitee_name,
+                 String invitee_id, String timestamp, String description, String start_time,
+                 String end_time, String seen, String status) {
 
         this.title = title;
         this.inviter_name = inviter_name;
