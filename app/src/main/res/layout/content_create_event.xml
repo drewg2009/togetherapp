@@ -12,6 +12,8 @@
     android:background="@color/colorPrimaryDark"
     tools:showIn="@layout/activity_create_event">
 
+    <EditText
+        android:id="@+id/editText2"/>
     <Button
         android:text="Generate"
         android:layout_width="wrap_content"
@@ -19,14 +21,7 @@
         android:layout_marginBottom="17dp"
         android:id="@+id/generateButton"
         android:layout_alignParentBottom="true"
-        android:layout_centerHorizontal="true" /><![CDATA[
-
-
-
-    />
-
-
-    ]]>
+        android:layout_centerHorizontal="true" />
 
     <SearchView
         android:layout_width="wrap_content"
@@ -50,7 +45,7 @@
         android:hint="Matt Rowe, Drew Gallagher"
         android:inputType="text"
         android:background="@drawable/borders"
-        android:layout_below="@+id/searchView"
+        android:layout_below="@+id/editText2"
         android:layout_alignParentLeft="true"
         android:layout_alignParentStart="true"
         android:layout_marginTop="35dp" />
@@ -100,28 +95,12 @@
         android:inputType="textPersonName"
         android:text=" Within the next X days"
         android:ems="10"
-        android:id="@+id/editText2"
         android:layout_below="@+id/seekBar"
         android:layout_alignParentLeft="true"
-<<<<<<< HEAD
-        android:layout_alignParentStart="true" />
-=======
         android:layout_alignParentStart="true"
         android:id="@+id/inviteeBox"
         android:layout_alignParentRight="true"
         android:layout_alignParentEnd="true" />
->>>>>>> 77ccef5ab24221aaa974cc442ad99a03ed1378e2
-
-    <NumberPicker
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:id="@+id/numberPicker2"
-        android:layout_above="@+id/button"
-        android:layout_alignParentLeft="true"
-        android:layout_alignParentStart="true"
-        android:layout_marginBottom="0dp"
-        android:layout_alignRight="@+id/textView2"
-        android:layout_alignEnd="@+id/textView2" />
 
     <EditText
         android:layout_width="wrap_content"
@@ -129,7 +108,7 @@
         android:inputType="textPersonName"
         android:text="Hours"
         android:ems="10"
-        android:layout_above="@+id/button"
+        android:layout_above="@+id/button2"
         android:layout_toRightOf="@+id/numberPicker2"
         android:layout_marginBottom="65dp"
         android:id="@+id/editText3"
@@ -174,6 +153,15 @@
         android:layout_below="@+id/editText2"
         android:layout_alignParentLeft="true"
         android:layout_alignParentStart="true" />
+
+    <NumberPicker
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:id="@+id/numberPicker2"
+        android:layout_below="@+id/editText3"
+        android:layout_alignParentLeft="true"
+        android:layout_alignParentStart="true"
+        android:layout_marginTop="76dp" />
 
 </RelativeLayout>
 
