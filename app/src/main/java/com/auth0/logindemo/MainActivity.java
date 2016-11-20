@@ -48,6 +48,7 @@ public class  MainActivity extends AppCompatActivity {
         //logo.setText("activity started!");
         Log.i(TAG, "activity started!");
 
+        setTitle("Together | Dashboard");
 
         // Instantiate the RequestQueue.
         RequestQueue queue = Volley.newRequestQueue(this);
