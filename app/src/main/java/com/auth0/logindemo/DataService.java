@@ -64,7 +64,7 @@ public class DataService {
         JsonObject jsonObject = new JsonParser().parse(in).getAsJsonObject();
         int id = jsonObject.get("id").getAsInt();
         Entry next = new Entry();
-        next.title = jsonObject.get("title").getAsString();
+        next.title = jsonObject.get("name").getAsString();
         next.inviter_name = jsonObject.get("inviter_name").getAsString();
         next.inviter_id = jsonObject.get("inviter_id").getAsString();
         next.invitee_name = jsonObject.get("invitee_name").getAsString();
