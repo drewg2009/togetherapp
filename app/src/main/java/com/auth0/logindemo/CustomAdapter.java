@@ -23,11 +23,11 @@ public class CustomAdapter extends RecyclerView.Adapter<CustomAdapter.ViewHolder
     }
 
     public class CollabHolder extends ViewHolder {
-        TextView temp;
+        TextView title;
 
         public CollabHolder(View v) {
             super(v);
-            this.temp = (TextView) v.findViewById(R.id.event_Title);
+            this.title = (TextView) v.findViewById(R.id.event_Title);
         }
     }
 
@@ -81,15 +81,18 @@ public class CustomAdapter extends RecyclerView.Adapter<CustomAdapter.ViewHolder
     public void onBindViewHolder(ViewHolder viewHolder, final int position) {
         if (viewHolder.getItemViewType() == INBOUND) {
             CollabHolder holder = (CollabHolder) viewHolder;
-            holder.temp.setText(dbService.get(position).title);
+            Entry data = dbService.get(position);
+            holder.title.setText(data.title);
         }
         else if (viewHolder.getItemViewType() == DONE) {
             AcceptedHolder holder = (AcceptedHolder) viewHolder;
-            holder.temp.setText(dbService.get(position).title);
+            Entry data = dbService.get(position);
+            holder.temp.setText(data.title);
         }
         else {
             BroadcastHolder holder = (BroadcastHolder) viewHolder;
-            holder.temp.setText(dbService.get(position).title);
+            Entry data = dbService.get(position);
+            holder.temp.setText(data.title);
         }
     }
 

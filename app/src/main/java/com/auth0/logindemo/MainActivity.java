@@ -43,8 +43,8 @@ public class MainActivity extends AppCompatActivity {
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
-        invitedDB.add(new CardObj("hey", "", "", "", "", "", "", "", "", "", "u"));
-        invitedDB.add(new CardObj("hey", "", "", "", "", "", "", "", "", "", " ")); //remove soon
+        invitedDB.add(new Entry("hey", "", "", "", "", "", "", "", "", "", "u"));
+        invitedDB.add(new Entry("hey", "", "", "", "", "", "", "", "", "", " ")); //remove soon
 
 
         super.onCreate(savedInstanceState);
