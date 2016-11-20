@@ -7,6 +7,22 @@
     android:fitsSystemWindows="true"
     tools:context="com.auth0.logindemo.CreateEvent">
 
+    /* Questions/Comments from Alex */
+
+    // 1 - the names will be full first/last separated by commas, and MUST already be in the table?
+
+    // 2 - what is the time picker for?
+
+    // 3 = it's my understanding that we need two user names and a duration.  For MVP, I'm limiting
+        //the functionality to exactly one week in advance since that's what we have in the table.
+        //that can be represented as a slider with different values, but the 1w can't change.
+        //duration will be in 15m increments, maybe a scroll wheel?  15m - 3h?
+
+    // 4 - Generate button will trigger the findHoles function and pass the resulting list of pairs
+        //to a new view (Matt used Jazz Hands to describe the ta-da moment)
+
+    /* End Questions */
+
     <android.support.design.widget.AppBarLayout
         android:layout_width="match_parent"
         android:layout_height="wrap_content"

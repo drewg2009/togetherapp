@@ -38,10 +38,15 @@ public class Login extends AppCompatActivity {
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
+<<<<<<< HEAD
         //TODO remove this later
         Intent i=new Intent(this, CreateEvent.class);
         startActivity(i);
         finish();
+=======
+
+        Intent i=new Intent(this, CreateEvent.class);
+>>>>>>> 8792774ac29e8eab722e1bb1267f47fb2128063b
 
         preferences = PreferenceManager.getDefaultSharedPreferences(this);
 

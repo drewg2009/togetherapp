@@ -36,26 +36,27 @@ public class MainActivity extends AppCompatActivity {
     private RecyclerView mRecyclerView;
     private CustomAdapter mAdapter;
     private RecyclerView.LayoutManager mLayoutManager;
-    private String[] mDataset = {"29 degrees", "Seahawks 24 - 27 Bengals",
-            "Flash missing, vanishes in crisis", "Half Life 3 announced"};
+    private DataService invitedDB = new DataService();
 
     SharedPreferences preferences;
     String currentEventString = "";
-    private int mDataSetTypes[] = {INBOUND, INBOUND, BROADCAST, DONE}; //view types
-
-
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
+        invitedDB.add(new CardObj("hey", "", "", "", "", "", "", "", "", "", "u"));
+        invitedDB.add(new CardObj("hey", "", "", "", "", "", "", "", "", "", " ")); //remove soon
+
+
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
 
         mRecyclerView = (RecyclerView) findViewById(R.id.recyclerView);
         mLayoutManager = new LinearLayoutManager(MainActivity.this);
         mRecyclerView.setLayoutManager(mLayoutManager);
-//Adapter is created in the last step
-        mAdapter = new CustomAdapter(mDataset, mDataSetTypes);
+        //Adapter is created in the last step
+        mAdapter = new CustomAdapter(invitedDB);
         mRecyclerView.setAdapter(mAdapter);
+
 
         //final TextView logo = (TextView) findViewById(R.id.logo);
         //logo.setText("activity started!");
@@ -166,6 +167,9 @@ public class MainActivity extends AppCompatActivity {
         return false;
 
     }
+
+
+
 }
 
 
