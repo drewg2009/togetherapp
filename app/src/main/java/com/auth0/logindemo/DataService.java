@@ -1,5 +1,8 @@
 package com.auth0.logindemo;
 
+import com.google.gson.JsonObject;
+import com.google.gson.JsonParser;
+
 import java.util.ArrayList;
 
 /**
@@ -39,6 +42,42 @@ public class DataService {
         return this.list.get(index);
     }
 
+    void importX(String in) {
+        JsonObject jsonObject = new JsonParser().parse(in).getAsJsonObject();
+        int id = jsonObject.get("id").getAsInt();
+        Entry next = new Entry();
+        next.title = jsonObject.get("title").getAsString();
+        next.inviter_name = jsonObject.get("inviter_name").getAsString();
+        next.inviter_id = jsonObject.get("inviter_id").getAsString();
+        next.invitee_name = jsonObject.get("invitee_name").getAsString();
+        next.invitee_id = jsonObject.get("invitee_id").getAsString();
+        next.timestamp = jsonObject.get("timestamp").getAsString();
+        next.description = jsonObject.get("description").getAsString();
+        next.start_time = jsonObject.get("start_time").getAsString();
+        next.end_time = jsonObject.get("end_time").getAsString();
+        next.seen = jsonObject.get("seen").getAsString();
+        next.status= jsonObject.get("status").getAsString();
+        this.list.add(next);
+    }
+
+    void importEvent(String in) {
+        JsonObject jsonObject = new JsonParser().parse(in).getAsJsonObject();
+        int id = jsonObject.get("id").getAsInt();
+        Entry next = new Entry();
+        next.title = jsonObject.get("name").getAsString();
+        next.inviter_name = jsonObject.get("inviter_name").getAsString();
+        next.inviter_id = jsonObject.get("inviter_id").getAsString();
+        next.invitee_name = jsonObject.get("invitee_name").getAsString();
+        next.invitee_id = jsonObject.get("invitee_id").getAsString();
+        next.timestamp = jsonObject.get("timestamp").getAsString();
+        next.description = jsonObject.get("description").getAsString();
+        next.start_time = jsonObject.get("start_time").getAsString();
+        next.end_time = jsonObject.get("end_time").getAsString();
+        next.seen = jsonObject.get("seen").getAsString();
+        next.status= jsonObject.get("status").getAsString();
+        this.list.add(next);
+    }
+
 }
 
 class Entry {
@@ -54,6 +93,10 @@ class Entry {
     public String end_time;
     public String seen = "u";
     public String status= "u";
+
+    public Entry() {
+
+    }
 
     public Entry(String title, String inviter_name, String inviter_id, String invitee_name,
                  String invitee_id, String timestamp, String description, String start_time,

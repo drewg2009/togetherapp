@@ -32,20 +32,20 @@ public class CustomAdapter extends RecyclerView.Adapter<CustomAdapter.ViewHolder
     }
 
     public class AcceptedHolder extends ViewHolder {
-        TextView temp;
+        TextView title;
 
         public AcceptedHolder(View v) {
             super(v);
-            this.temp = (TextView) v.findViewById(R.id.event_Title);
+            this.title = (TextView) v.findViewById(R.id.event_Title);
         }
     }
 
     public class BroadcastHolder extends ViewHolder {
-        TextView temp;
+        TextView title;
 
         public BroadcastHolder(View v) {
             super(v);
-            this.temp = (TextView) v.findViewById(R.id.event_Title);
+            this.title = (TextView) v.findViewById(R.id.event_Title);
         }
     }
 
@@ -73,8 +73,6 @@ public class CustomAdapter extends RecyclerView.Adapter<CustomAdapter.ViewHolder
                     .inflate(R.layout.broadcast_card, viewGroup, false);
             return new BroadcastHolder(v);
         }
-
-
     }
 
     @Override
@@ -87,12 +85,12 @@ public class CustomAdapter extends RecyclerView.Adapter<CustomAdapter.ViewHolder
         else if (viewHolder.getItemViewType() == DONE) {
             AcceptedHolder holder = (AcceptedHolder) viewHolder;
             Entry data = dbService.get(position);
-            holder.temp.setText(data.title);
+            holder.title.setText(data.title);
         }
         else {
             BroadcastHolder holder = (BroadcastHolder) viewHolder;
             Entry data = dbService.get(position);
-            holder.temp.setText(data.title);
+            holder.title.setText(data.title);
         }
     }
 

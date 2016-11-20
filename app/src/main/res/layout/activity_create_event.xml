@@ -43,6 +43,7 @@
         android:layout_width="match_parent"
         android:layout_height="wrap_content" />
 
-    <include layout="@layout/content_create_event" />
+    <include layout="@layout/content_create_event"
+        android:layout_height="517dp" />
 
 </android.support.design.widget.CoordinatorLayout>
