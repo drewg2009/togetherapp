@@ -15,7 +15,7 @@ import com.android.volley.toolbox.Volley;
 
 //Borrowing some code examples from Arjunu for Recycler
 
-public class MainActivity extends AppCompatActivity {
+public class  MainActivity extends AppCompatActivity {
 
     static String TAG = "MAIN_ACTIVITY";
 
