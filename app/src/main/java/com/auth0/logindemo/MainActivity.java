@@ -16,7 +16,7 @@ import com.android.volley.toolbox.Volley;
 
 //Borrowing some code examples from Arjunu for Recycler
 
-public class MainActivity extends AppCompatActivity {
+public class  MainActivity extends AppCompatActivity {
 
     static String TAG = "MAIN_ACTIVITY";
 
@@ -29,7 +29,7 @@ public class MainActivity extends AppCompatActivity {
     private RecyclerView.LayoutManager mLayoutManager;
     private String[] mDataset = {"29 degrees", "Seahawks 24 - 27 Bengals",
             "Flash missing, vanishes in crisis", "Half Life 3 announced"};
-    private int mDataSetTypes[] = {UNSEEN, SEEN, ACCEPTED, ACCEPTED}; //view types
+    private int mDataSetTypes[] = {UNSEEN, UNSEEN, UNSEEN, UNSEEN}; //view types
 
 
 
