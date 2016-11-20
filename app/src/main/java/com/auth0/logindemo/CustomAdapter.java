@@ -24,10 +24,10 @@ public class CustomAdapter extends RecyclerView.Adapter<CustomAdapter.ViewHolder
         }
     }
 
-    public class WeatherViewHolder extends ViewHolder {
+    public class CollabHolder extends ViewHolder {
         TextView temp;
 
-        public WeatherViewHolder(View v) {
+        public CollabHolder(View v) {
             super(v);
             this.temp = (TextView) v.findViewById(R.id.event_Title);
         }
@@ -67,15 +67,15 @@ public class CustomAdapter extends RecyclerView.Adapter<CustomAdapter.ViewHolder
             v = LayoutInflater.from(viewGroup.getContext())
                     .inflate(R.layout.pending_invite_card, viewGroup, false);
 
-            return new WeatherViewHolder(v);
+            return new CollabHolder(v);
         }  else if (viewType == SEEN) {
             v = LayoutInflater.from(viewGroup.getContext())
                     .inflate(R.layout.pending_invite_card, viewGroup, false);
-            return new WeatherViewHolder(v);
+            return new CollabHolder(v);
         } else {
             v = LayoutInflater.from(viewGroup.getContext())
                     .inflate(R.layout.pending_invite_card, viewGroup, false);
-            return new WeatherViewHolder(v);
+            return new CollabHolder(v);
         }
 
 
@@ -84,7 +84,7 @@ public class CustomAdapter extends RecyclerView.Adapter<CustomAdapter.ViewHolder
     @Override
     public void onBindViewHolder(ViewHolder viewHolder, final int position) {
         if (viewHolder.getItemViewType() == UNSEEN) {
-            WeatherViewHolder holder = (WeatherViewHolder) viewHolder;
+            CollabHolder holder = (CollabHolder) viewHolder;
             holder.temp.setText(mDataSet[position]);
         }
         /*else if (viewHolder.getItemViewType() == SEEN) {

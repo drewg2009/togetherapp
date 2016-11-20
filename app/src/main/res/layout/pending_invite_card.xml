@@ -20,7 +20,7 @@
             android:layout_height="match_parent"
             card_view:srcCompat="@color/cardview_dark_background"
             android:layout_alignParentTop="true"
-            android:id="@+id/imageView"
+            android:id="@+id/accentBlock"
             android:layout_toRightOf="@+id/space"
             android:layout_toEndOf="@+id/space" />
 
@@ -28,7 +28,7 @@
             android:layout_width="50dp"
             android:layout_height="wrap_content"
             card_view:srcCompat="@drawable/com_auth0_lock_ic_chevron"
-            android:id="@+id/imageButton2"
+            android:id="@+id/expandButton"
             android:cropToPadding="false"
             android:layout_marginRight="10dp"
             android:layout_marginEnd="10dp"
@@ -36,20 +36,6 @@
             android:layout_alignParentRight="true"
             android:layout_alignParentEnd="true"
             android:background="@color/cardview_shadow_end_color" />
-
-        <TextView
-            android:text="AUG\n20"
-            android:layout_height="wrap_content"
-            android:layout_width="62dp"
-            android:id="@+id/textView8"
-            android:layout_weight="0.06"
-            android:textAppearance="@style/TextAppearance.AppCompat.Medium.Inverse"
-            android:layout_centerVertical="true"
-            android:layout_alignRight="@+id/imageView"
-            android:layout_alignEnd="@+id/imageView"
-            android:layout_alignParentLeft="true"
-            android:layout_alignParentStart="true"
-            android:textAlignment="center" />
 
         <LinearLayout
             android:orientation="vertical"
@@ -79,6 +65,42 @@
                 android:id="@+id/inviter_Name"
                 android:textAppearance="@style/TextAppearance.AppCompat.Small.Inverse" />
 
+        </LinearLayout>
+
+        <LinearLayout
+            android:orientation="vertical"
+            android:layout_width="62dp"
+            android:layout_height="match_parent"
+            android:layout_alignParentTop="true"
+            android:layout_alignParentLeft="true"
+            android:layout_alignParentStart="true"
+            android:layout_alignRight="@+id/accentBlock"
+            android:layout_alignEnd="@+id/accentBlock"
+            android:weightSum="1">
+
+            <TextView
+                android:text="AUG"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:id="@+id/textView15"
+                android:textAppearance="@style/TextAppearance.AppCompat.Medium.Inverse"
+                android:textAlignment="center" />
+
+            <TextView
+                android:text="20"
+                android:layout_height="wrap_content"
+                android:layout_width="70dp"
+                android:id="@+id/textView8"
+                android:textAppearance="@style/TextAppearance.AppCompat.Medium.Inverse"
+                android:layout_centerVertical="true"
+                android:layout_alignRight="@+id/accentBlock"
+                android:layout_alignEnd="@+id/accentBlock"
+                android:layout_alignParentLeft="true"
+                android:layout_alignParentStart="true"
+                android:textAlignment="center"
+                android:fontFamily="sans-serif"
+                android:textSize="30sp"
+                android:textStyle="normal|bold" />
         </LinearLayout>
 
     </RelativeLayout>
