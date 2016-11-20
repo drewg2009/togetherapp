@@ -22,6 +22,7 @@
         android:layout_alignParentBottom="true"
         android:layout_centerHorizontal="true" />
 
+
     <SearchView
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
@@ -35,6 +36,9 @@
 
 
 
+
+
+
     <EditText
         android:id="@+id/inputSearchEditText"
         android:layout_width="match_parent"
@@ -44,10 +48,11 @@
         android:hint="Matt Rowe, Drew Gallagher"
         android:inputType="text"
         android:background="@drawable/borders"
-        android:layout_below="@+id/editText2"
+        android:layout_below="@+id/searchView"
         android:layout_alignParentLeft="true"
         android:layout_alignParentStart="true"
         android:layout_marginTop="35dp" />
+
 
     <TextView
         android:text="Selected Invitees:"
@@ -59,6 +64,7 @@
         android:layout_marginTop="13dp"
         android:id="@+id/textView2" />
 
+
     <!--<TimePicker-->
     <!--android:id="@+id/simpleTimePicker"-->
     <!--android:layout_width="wrap_content"-->
@@ -66,6 +72,7 @@
     <!--android:timePickerMode="spinner"-->
     <!--android:layout_above="@+id/button"-->
     <!--android:layout_centerHorizontal="true" />-->
+
 
     <TextView
         android:text="How Soon Would You Like to Meet?"
@@ -76,6 +83,7 @@
         android:layout_alignParentLeft="true"
         android:layout_alignParentStart="true"
         android:layout_marginTop="15dp" />
+
 
     <SeekBar
         style="@style/Widget.AppCompat.SeekBar.Discrete"
@@ -88,18 +96,29 @@
         android:layout_alignParentLeft="true"
         android:layout_alignParentStart="true" />
 
+
     <EditText
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:inputType="textPersonName"
         android:text=" Within the next X days"
         android:ems="10"
+        android:id="@+id/editText2"
         android:layout_below="@+id/seekBar"
         android:layout_alignParentLeft="true"
+        android:layout_alignParentStart="true" />
+
+
+    <NumberPicker
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:id="@+id/numberPicker2"
+        android:layout_above="@+id/generateButton"
+        android:layout_alignParentLeft="true"
         android:layout_alignParentStart="true"
-        android:id="@+id/inviteeBox"
-        android:layout_alignParentRight="true"
-        android:layout_alignParentEnd="true" />
+        android:layout_marginBottom="0dp"
+        android:layout_alignRight="@+id/textView2"
+        android:layout_alignEnd="@+id/textView2" />
 
 
     <EditText
@@ -108,12 +127,13 @@
         android:inputType="textPersonName"
         android:text="Hours"
         android:ems="10"
-        android:layout_above="@+id/button2"
+        android:layout_above="@+id/generateButton"
         android:layout_toRightOf="@+id/numberPicker2"
         android:layout_marginBottom="65dp"
-        android:id="@+id/editText3"
+        android:id="@+id/inviteeBox"
         android:layout_alignRight="@+id/editText2"
         android:layout_alignEnd="@+id/editText2" />
+
 
     <NumberPicker
         android:layout_width="wrap_content"
@@ -123,22 +143,20 @@
         android:layout_alignBottom="@+id/numberPicker2"
         android:layout_toLeftOf="@+id/button2" />
 
+
     <EditText
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:inputType="textPersonName"
         android:text="Minutes"
         android:ems="10"
-        android:layout_alignTop="@+id/editText3"
+        android:layout_alignTop="@+id/editText2"
         android:layout_toEndOf="@+id/numberPicker3"
         android:id="@+id/editText4"
         android:layout_toRightOf="@+id/numberPicker3" />
-<<<<<<< HEAD
 
-<Button
-=======
+
     <Button
->>>>>>> 2c3a359a6da7f03289f668f9d41cd6a4ecdcc977
         android:text="Add"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
@@ -149,10 +167,8 @@
         android:layout_alignParentRight="true"
         android:layout_alignParentEnd="true" />
 
-<TextView
-=======
+
     <TextView
-><![CDATA[>>>>>> 2c3a359a6da7f03289f668f9d41cd6a4ecdcc977
         android:text="How Long Would You Like to Meet?"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
@@ -161,48 +177,11 @@
         android:layout_alignParentLeft="true"
         android:layout_alignParentStart="true" />
 
-    android:id="@+id/textView2"
-        android:layout_below="@+id/inviteeBox"
-        android:layout_alignParentLeft="true"
-        android:layout_alignParentStart="true"
-        android:layout_marginTop="65dp"
-        android:layout_alignParentRight="true"
-        android:layout_alignParentEnd="true" />
-
-    ]]>
-
-    <TextView
-        android:text="By When Would You Like to Meet?"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_below="@+id/inviteeBox"
-        android:layout_alignParentLeft="true"
-        android:layout_alignParentStart="true"
-        android:layout_marginTop="12dp"
-        android:id="@+id/textView3"
-        android:layout_alignParentRight="true"
-        android:layout_alignParentEnd="true" />
-
-    <NumberPicker
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:id="@+id/numberPicker2"
-        android:layout_marginTop="76dp"
-        android:layout_below="@+id/numberPicker"
-        android:layout_toRightOf="@+id/"
-        android:layout_toEndOf="@+id/" />
-
-    <NumberPicker
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:id="@+id/numberPicker"
-        android:layout_above="@+id/generateButton" android:layout_alignParentLeft="true" android:layout_alignParentStart="tru
-
- android:layout_marginBottom="267dp"/>
-
 
 </RelativeLayout>
 
 
-]]>
+
+
+
 

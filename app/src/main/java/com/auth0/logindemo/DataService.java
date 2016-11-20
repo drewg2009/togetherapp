@@ -29,6 +29,8 @@ public class DataService {
         String status = this.list.get(index).status;
         if (status.equals("u")) {
             return 0;
+        } else if (status.equals("a")) {
+            return 2;
         } else {
             return 1;
         }

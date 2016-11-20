@@ -56,9 +56,10 @@ public class MainActivity extends AppCompatActivity {
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
-        invitedDB.add(new Entry("hey", "", "", "", "", "", "", "", "", "", "u"));
-        invitedDB.add(new Entry("hey", "", "", "", "", "", "", "", "", "", " ")); //remove soon
-
+        invitedDB.add(new Entry("Meet for Lunch at Cafe", "", "", "", "", "", "", "", "", "", "u"));
+        invitedDB.add(new Entry("Lab Work", "", "", "", "", "", "", "", "", "", " ")); //remove soon
+        invitedDB.add(new Entry("Broadcast", "", "", "", "", "", "", "", "", "", "a"));
+        invitedDB.add(new Entry("Hackathon", "", "", "", "", "", "", "", "", "", " "));
 
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
@@ -108,7 +109,7 @@ public class MainActivity extends AppCompatActivity {
             }
         });
 
-        final Intent myEvents = new Intent(this, MyEvents.class);
+        final Intent myEvents = new Intent(this, Edit.class);
         myEventsButton.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
@@ -116,16 +117,13 @@ public class MainActivity extends AppCompatActivity {
             }
         });
 
-        final Intent createEvent = new Intent(this, CreateEvent.class);
+        final Intent buildEvent = new Intent(this, BuildEvent.class);
         newEventButton.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                startActivity(createEvent);
+                startActivity(buildEvent);
             }
         });
-
-
-
 
 
         getInvitations(id);

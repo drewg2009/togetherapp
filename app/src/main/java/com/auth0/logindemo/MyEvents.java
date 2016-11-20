@@ -5,4 +5,5 @@ package com.auth0.logindemo;
  */
 
 public class MyEvents {
+
 }
