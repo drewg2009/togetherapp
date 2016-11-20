@@ -1,6 +1,11 @@
 package com.auth0.logindemo;
 
+import android.content.DialogInterface;
 import android.content.Intent;
+import android.content.SharedPreferences;
+import android.os.Handler;
+import android.preference.PreferenceManager;
+import android.support.v7.app.AlertDialog;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
 import android.util.Log;
@@ -30,13 +35,13 @@ public class CreateEvent extends AppCompatActivity {
     static String TAG = "CREATE_EVENT";
 
     private static int NUM_PERIODS = 392;  //7 * 56 = 392 1's and 0's in each string
-    String personOneCalendarValue = "";
-    String personTwoCalendarValue = "";
+    SharedPreferences preferences;
 
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
+        preferences = PreferenceManager.getDefaultSharedPreferences(this);
 
 
         /*BEGIN pseudocode for the "create event" Activity*/
@@ -83,8 +88,28 @@ public class CreateEvent extends AppCompatActivity {
                 Log.i(TAG, personTwo);
                 getCalendarString(personOne, 1);
                 getCalendarString(personTwo, 2);
+                // Execute some code after 2 seconds have passed
+                Handler handler = new Handler();
+                handler.postDelayed(new Runnable() {
+                    @Override
+                    public void run() {
+                        ArrayList<Pair<Integer, Integer>> suggestedEvents = findHoles(preferences.getString("personOneValue",""), preferences.getString("personTwoValue",""));
+                        Log.i(TAG, "Suggested Events: "+suggestedEvents.toString());
 
-
+                        AlertDialog alertDialog = new AlertDialog.Builder(getApplicationContext()).create();
+                        alertDialog.setTitle("Pending Invite");
+                        alertDialog.setMessage("Alert message to be shown");
+                        alertDialog.setButton(AlertDialog.BUTTON_NEUTRAL, "OK",
+                                new DialogInterface.OnClickListener() {
+                                    public void onClick(DialogInterface dialog, int which) {
+                                        dialog.dismiss();
+                                    }
+                                });
+                        alertDialog.show();
+                    }
+                }, 2000);
+                Log.i(TAG,preferences.getString("personOneValue",""));
+                Log.i(TAG,preferences.getString("personTwoValue",""));
             }
         });
 
@@ -106,7 +131,6 @@ public class CreateEvent extends AppCompatActivity {
                 "00000111110000011111000001111100000111110000011111000111" +
                 "00000111110000011111000001111100000111110000011111000111";
 
-        ArrayList<Pair<Integer, Integer>> suggestedEvents = findHoles(personOneCalendarValue, personTwoCalendarValue);
         int a = 3;
     }
 
@@ -125,7 +149,7 @@ public class CreateEvent extends AppCompatActivity {
         int i;
         int[] added = new int[NUM_PERIODS];
         for (i = 0; i < NUM_PERIODS; i++) {
-            int busyness = (int) person1.charAt(i) + (int) person2.charAt(i);
+            int busyness = Integer.parseInt(""+person1.charAt(i)) + Integer.parseInt(""+person2.charAt(i));
             added[i] = busyness;
         }
 
@@ -135,7 +159,7 @@ public class CreateEvent extends AppCompatActivity {
         int k = 0;  //k=length of current run
 
         for (i = 0; i < NUM_PERIODS; i++) {
-            if (i == 0) {
+            if (added[i] == 0) {
                 //the slot at i is free
                 if (isNewRun) {
                     //if it's a new run, set j and update isNewRun
@@ -144,10 +168,12 @@ public class CreateEvent extends AppCompatActivity {
                 }
                 k++; //regardless, increment the length of current run
             } else {
-                Pair<Integer, Integer> pair = new Pair<>(j, k);
-                openings.add(pair);
-                k = 0;
-                isNewRun = true;
+                if(k != 0) {
+                    Pair<Integer, Integer> pair = new Pair<>(j, k);
+                    openings.add(pair);
+                    k = 0;
+                    isNewRun = true;
+                }
             }
         }
         return openings;
@@ -177,9 +203,11 @@ public class CreateEvent extends AppCompatActivity {
                 }
 
                 if (personNum == 1) {
-                    personOneCalendarValue = calendarValue;
+                    preferences.edit().putString("personOneValue", calendarValue).apply();
+
                 } else if (personNum == 2) {
-                    personOneCalendarValue = calendarValue;
+                    preferences.edit().putString("personTwoValue", calendarValue).apply();
+
                 }
 
             }
