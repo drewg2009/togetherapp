@@ -135,9 +135,7 @@
         android:id="@+id/editText4"
         android:layout_toRightOf="@+id/numberPicker3" />
 
-=======
->>>>>>> 429fcd3d004cca8eac8a12881cb51d8313c61a73
-    <Button
+<Button
         android:text="Add"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
@@ -148,8 +146,7 @@
         android:layout_alignParentRight="true"
         android:layout_alignParentEnd="true" />
 
-<<<<<<< HEAD
-=======
+
     <NumberPicker
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
@@ -170,8 +167,7 @@
         android:layout_toRightOf="@+id/generateButton"
         android:layout_toEndOf="@+id/generateButton" />
 
->>>>>>> 429fcd3d004cca8eac8a12881cb51d8313c61a73
-    <TextView
+<TextView
         android:text="How Long Would You Like to Meet?"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
