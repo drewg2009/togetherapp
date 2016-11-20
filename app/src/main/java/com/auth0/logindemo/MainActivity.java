@@ -8,11 +8,8 @@ import android.support.v7.app.AppCompatActivity;
 import android.support.v7.widget.LinearLayoutManager;
 import android.support.v7.widget.RecyclerView;
 import android.util.Log;
-<<<<<<< HEAD
 import android.widget.SeekBar;
-=======
 import android.view.View;
->>>>>>> 429fcd3d004cca8eac8a12881cb51d8313c61a73
 
 import com.android.volley.AuthFailureError;
 import com.android.volley.Request;

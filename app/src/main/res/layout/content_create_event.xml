@@ -12,8 +12,7 @@
     android:background="@color/colorPrimaryDark"
     tools:showIn="@layout/activity_create_event">
 
-    <EditText
-        android:id="@+id/editText2"/>
+
     <Button
         android:text="Generate"
         android:layout_width="wrap_content"
@@ -102,7 +101,7 @@
         android:layout_alignParentRight="true"
         android:layout_alignParentEnd="true" />
 
-<<<<<<< HEAD
+
     <EditText
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
@@ -134,9 +133,6 @@
         android:layout_toEndOf="@+id/numberPicker3"
         android:id="@+id/editText4"
         android:layout_toRightOf="@+id/numberPicker3" />
-
-=======
->>>>>>> 429fcd3d004cca8eac8a12881cb51d8313c61a73
     <Button
         android:text="Add"
         android:layout_width="wrap_content"
@@ -148,8 +144,6 @@
         android:layout_alignParentRight="true"
         android:layout_alignParentEnd="true" />
 
-<<<<<<< HEAD
-=======
     <NumberPicker
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
@@ -160,22 +154,11 @@
         android:layout_toLeftOf="@+id/generateButton"
         android:layout_toStartOf="@+id/generateButton" />
 
-    <NumberPicker
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_alignTop="@+id/numberPicker"
-        android:layout_alignParentRight="true"
-        android:layout_alignParentEnd="true"
-        android:id="@+id/numberPicker2"
-        android:layout_toRightOf="@+id/generateButton"
-        android:layout_toEndOf="@+id/generateButton" />
 
->>>>>>> 429fcd3d004cca8eac8a12881cb51d8313c61a73
     <TextView
         android:text="How Long Would You Like to Meet?"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-<<<<<<< HEAD
         android:id="@+id/textView5"
         android:layout_below="@+id/editText2"
         android:layout_alignParentLeft="true"
@@ -189,7 +172,6 @@
         android:layout_alignParentLeft="true"
         android:layout_alignParentStart="true"
         android:layout_marginTop="76dp" />
-=======
         android:id="@+id/textView2"
         android:layout_below="@+id/inviteeBox"
         android:layout_alignParentLeft="true"
@@ -210,46 +192,9 @@
         android:layout_alignParentRight="true"
         android:layout_alignParentEnd="true" />
 
-    <SeekBar
-        style="@style/Widget.AppCompat.SeekBar.Discrete"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:max="10"
-        android:progress="3"
-        android:id="@+id/seekBar"
-        android:layout_below="@+id/textView3"
-        android:layout_alignParentLeft="true"
-        android:layout_alignParentStart="true"
-        android:layout_alignParentRight="true"
-        android:layout_alignParentEnd="true" />
 
-    <EditText
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:inputType="textPersonName"
-        android:text="Hour"
-        android:ems="10"
-        android:layout_marginTop="29dp"
-        android:id="@+id/editText2"
-        android:layout_below="@+id/textView2"
-        android:layout_alignParentLeft="true"
-        android:layout_alignParentStart="true"
-        android:layout_alignRight="@+id/numberPicker"
-        android:layout_alignEnd="@+id/numberPicker" />
 
-    <EditText
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:inputType="textPersonName"
-        android:text="Minute"
-        android:ems="10"
-        android:layout_alignTop="@+id/editText2"
-        android:layout_alignParentRight="true"
-        android:layout_alignParentEnd="true"
-        android:id="@+id/editText3"
-        android:layout_alignLeft="@+id/numberPicker2"
-        android:layout_alignStart="@+id/numberPicker2" />
->>>>>>> 429fcd3d004cca8eac8a12881cb51d8313c61a73
+
 
 </RelativeLayout>
 
