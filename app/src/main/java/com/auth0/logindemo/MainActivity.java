@@ -7,6 +7,7 @@ import android.support.v7.app.AppCompatActivity;
 import android.support.v7.widget.LinearLayoutManager;
 import android.support.v7.widget.RecyclerView;
 import android.util.Log;
+import android.widget.SeekBar;
 
 import com.android.volley.AuthFailureError;
 import com.android.volley.Request;
@@ -26,6 +27,10 @@ import java.util.Map;
 //Borrowing some code examples from Arjunu for Recycler
 
 public class MainActivity extends AppCompatActivity {
+
+    //SeekBar
+    //private static SeekBar seek_bar;
+    //private static textView text_view;
 
     static String TAG = "MAIN_ACTIVITY";
 
@@ -49,6 +54,16 @@ public class MainActivity extends AppCompatActivity {
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
+
+
+    }
+
+    //public void seekbar( ){
+        //seek_bar = (SeekBar)findViewById(R.id.seekBar);
+        //text_view = (textView)findViewById(R.id.textView);
+        //text_view.setText("Covered : " + seek_bar.getProgress() + " / " +seek_bar.getMax());
+
+        //seek_bar.setOnSeekBarListener()
 
         mRecyclerView = (RecyclerView) findViewById(R.id.recyclerView);
         mLayoutManager = new LinearLayoutManager(MainActivity.this);

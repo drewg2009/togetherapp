@@ -19,42 +19,134 @@
         android:layout_marginBottom="17dp"
         android:id="@+id/button"
         android:layout_alignParentBottom="true"
-        android:layout_centerHorizontal="true" />
+        android:layout_centerHorizontal="true" /><![CDATA[
 
-    <TextView
-        android:text="Selected Invitees"
+
+
+    />
+
+
+    ]]>
+
+    <SearchView
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
+        android:layout_alignTop="@+id/button2"
         android:layout_alignParentLeft="true"
         android:layout_alignParentStart="true"
-        android:id="@+id/textView"
-        android:layout_alignParentRight="true"
-        android:layout_alignParentEnd="true" />
+        android:layout_toLeftOf="@+id/button2"
+        android:layout_toStartOf="@+id/button2"
+        android:background="@drawable/borders"
+        android:id="@+id/searchView" />
+
+
+
+    <EditText
+        android:id="@+id/inputSearchEditText"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:ellipsize="start"
+        android:gravity="center"
+        android:hint="Matt Rowe, Drew Gallagher"
+        android:inputType="text"
+        android:background="@drawable/borders"
+        android:layout_below="@+id/searchView"
+        android:layout_alignParentLeft="true"
+        android:layout_alignParentStart="true"
+        android:layout_marginTop="35dp" />
+
+    <TextView
+        android:text="Selected Invitees:"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_below="@+id/searchView"
+        android:layout_alignParentLeft="true"
+        android:layout_alignParentStart="true"
+        android:layout_marginTop="13dp"
+        android:id="@+id/textView2" />
+
+    <!--<TimePicker-->
+    <!--android:id="@+id/simpleTimePicker"-->
+    <!--android:layout_width="wrap_content"-->
+    <!--android:layout_height="wrap_content"-->
+    <!--android:timePickerMode="spinner"-->
+    <!--android:layout_above="@+id/button"-->
+    <!--android:layout_centerHorizontal="true" />-->
+
+    <TextView
+        android:text="How Soon Would You Like to Meet?"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:id="@+id/textView4"
+        android:layout_below="@+id/inputSearchEditText"
+        android:layout_alignParentLeft="true"
+        android:layout_alignParentStart="true"
+        android:layout_marginTop="15dp" />
+
+    <SeekBar
+        style="@style/Widget.AppCompat.SeekBar.Discrete"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:max="10"
+        android:progress="3"
+        android:id="@+id/seekBar"
+        android:layout_below="@+id/textView4"
+        android:layout_alignParentLeft="true"
+        android:layout_alignParentStart="true" />
 
     <EditText
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:inputType="textPersonName"
-        android:text="Matt Rowe, Drew Gallagher"
-        android:ems="6"
-        android:layout_below="@+id/textView"
+        android:text=" Within the next X days"
+        android:ems="10"
+        android:id="@+id/editText2"
+        android:layout_below="@+id/seekBar"
         android:layout_alignParentLeft="true"
-        android:layout_alignParentStart="true"
-        android:id="@+id/editText"
-        android:layout_alignParentRight="true"
-        android:layout_alignParentEnd="true" />
+        android:layout_alignParentStart="true" />
 
-    <TimePicker
-        android:id="@+id/simpleTimePicker"
+    <NumberPicker
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:timePickerMode="spinner"
-        android:layout_below="@+id/editText"
+        android:id="@+id/numberPicker2"
+        android:layout_above="@+id/button"
         android:layout_alignParentLeft="true"
         android:layout_alignParentStart="true"
-        android:layout_marginLeft="54dp"
-        android:layout_marginStart="54dp"
-        android:layout_marginTop="24dp" />
+        android:layout_marginBottom="0dp"
+        android:layout_alignRight="@+id/textView2"
+        android:layout_alignEnd="@+id/textView2" />
+
+    <EditText
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:inputType="textPersonName"
+        android:text="Hours"
+        android:ems="10"
+        android:layout_above="@+id/button"
+        android:layout_toRightOf="@+id/numberPicker2"
+        android:layout_marginBottom="65dp"
+        android:id="@+id/editText3"
+        android:layout_alignRight="@+id/editText2"
+        android:layout_alignEnd="@+id/editText2" />
+
+    <NumberPicker
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:id="@+id/numberPicker3"
+        android:layout_alignBaseline="@+id/numberPicker2"
+        android:layout_alignBottom="@+id/numberPicker2"
+        android:layout_toLeftOf="@+id/button2" />
+
+    <EditText
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:inputType="textPersonName"
+        android:text="Minutes"
+        android:ems="10"
+        android:layout_alignTop="@+id/editText3"
+        android:layout_toEndOf="@+id/numberPicker3"
+        android:id="@+id/editText4"
+        android:layout_toRightOf="@+id/numberPicker3" />
 
     <Button
         android:text="Add"
@@ -62,8 +154,19 @@
         android:layout_height="wrap_content"
         android:id="@+id/button2"
         android:elevation="8dp"
-        android:layout_alignBottom="@+id/editText"
+        android:layout_marginTop="19dp"
+        android:layout_toRightOf="@+id/searchView"
         android:layout_alignParentRight="true"
         android:layout_alignParentEnd="true" />
 
+    <TextView
+        android:text="How Long Would You Like to Meet?"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:id="@+id/textView5"
+        android:layout_below="@+id/editText2"
+        android:layout_alignParentLeft="true"
+        android:layout_alignParentStart="true" />
+
 </RelativeLayout>
+
