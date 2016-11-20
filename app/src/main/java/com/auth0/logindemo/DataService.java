@@ -12,6 +12,7 @@ import java.util.ArrayList;
 public class DataService {
     public ArrayList<Entry> list;
 
+    //Constructors
     public DataService() {
         this.list = new ArrayList<Entry>();
     }
@@ -20,10 +21,12 @@ public class DataService {
         this.list = new ArrayList<Entry>(size);
     }
 
+    //ref to ArrayList
     void add(Entry in) {
         this.list.add(in);
     }
 
+    //Returns card type
     int displayType(int index) {
         String seen = this.list.get(index).seen;
         String status = this.list.get(index).status;
@@ -40,10 +43,12 @@ public class DataService {
         return this.list.size();
     }
 
+    //Returns Entry at index
     Entry get(int index) {
         return this.list.get(index);
     }
 
+    //Generic AF Import
     void importX(String in) {
         JsonObject jsonObject = new JsonParser().parse(in).getAsJsonObject();
         int id = jsonObject.get("id").getAsInt();
@@ -62,6 +67,7 @@ public class DataService {
         this.list.add(next);
     }
 
+    //Event style import
     void importEvent(String in) {
         JsonObject jsonObject = new JsonParser().parse(in).getAsJsonObject();
         int id = jsonObject.get("id").getAsInt();
