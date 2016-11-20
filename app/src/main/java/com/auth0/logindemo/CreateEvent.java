@@ -16,16 +16,23 @@ import com.android.volley.Response;
 import com.android.volley.VolleyError;
 import com.android.volley.toolbox.StringRequest;
 import com.android.volley.toolbox.Volley;
+import com.google.gson.JsonObject;
+import com.google.gson.JsonParser;
+
+import org.json.JSONArray;
 
 import java.util.ArrayList;
 import java.util.HashMap;
 import java.util.Map;
 
 public class CreateEvent extends AppCompatActivity {
-    
+
     static String TAG = "CREATE_EVENT";
 
     private static int NUM_PERIODS = 392;  //7 * 56 = 392 1's and 0's in each string
+    String personOneCalendarValue = "";
+    String personTwoCalendarValue = "";
+
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -35,18 +42,18 @@ public class CreateEvent extends AppCompatActivity {
         /*BEGIN pseudocode for the "create event" Activity*/
 
         //on "Generate" button, pull the two names from the fields
-            //use two name fields for the MVP?  much easier that way
+        //use two name fields for the MVP?  much easier that way
 
         //using the "get Calendar string" function from Drew, get both users' avail strings
 
         //create the list of "gaps" using findHoles
 
         //using mod math, convert the integers to start/end times and duration
-            //modSP = start position mod 14 is number of 15m periods from 8am on day N
-            //day N is (start - modSP)/14
+        //modSP = start position mod 14 is number of 15m periods from 8am on day N
+        //day N is (start - modSP)/14
 
-            //start_time = now() + day_n + modSP*15m (Java.Date object)
-            //end_time = start_time + duration*15m
+        //start_time = now() + day_n + modSP*15m (Java.Date object)
+        //end_time = start_time + duration*15m
 
         //weed out the entries whose durations are too small
 
@@ -62,45 +69,45 @@ public class CreateEvent extends AppCompatActivity {
         setContentView(R.layout.activity_create_event);
         //set up sample strings
 
-        Button generateButton = (Button)findViewById(R.id.generateButton);
-        final EditText inviteesInput = (EditText)findViewById(R.id.inviteeBox);
+        Button generateButton = (Button) findViewById(R.id.generateButton);
+        final EditText inviteesInput = (EditText) findViewById(R.id.inviteeBox);
 
         generateButton.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
                 String inputString = inviteesInput.getText().toString();
-                String [] splitString = inputString.split(", ");
-                String personOne =  splitString[0];
+                String[] splitString = inputString.split(", ");
+                String personOne = splitString[0];
                 String personTwo = splitString[1];
-                Log.i(TAG,personOne);
-                Log.i(TAG,personTwo);
-                String personOneCalendarString = getCalendarString(personOne);
-                String personTwoCalendarString = getCalendarString(personTwo);
+                Log.i(TAG, personOne);
+                Log.i(TAG, personTwo);
+                getCalendarString(personOne, 1);
+                getCalendarString(personTwo, 2);
 
 
             }
         });
 
 
-        int i=0;
+        int i = 0;
         String one = "00001000110011100000111110000011111000001111100000111000" +
-                     "11111000001111100000111110000011111000001111100000111000" +
-                     "11111000001111100000111110000011111000001111100000111000" +
-                     "11111000001111100000111110000011111000001111100000111000" +
-                     "11111000001111100000111110000011111000001111100000111000" +
-                     "11111000001111100000111110000011111000001111100000111000" +
-                     "11111000001111100000111110000011111000001111100000111000";
+                "11111000001111100000111110000011111000001111100000111000" +
+                "11111000001111100000111110000011111000001111100000111000" +
+                "11111000001111100000111110000011111000001111100000111000" +
+                "11111000001111100000111110000011111000001111100000111000" +
+                "11111000001111100000111110000011111000001111100000111000" +
+                "11111000001111100000111110000011111000001111100000111000";
 
         String two = "00000111110000011111000001111100000111110000011111000111" +
-                     "00000111110000011111000001111100000111110000011111000111" +
-                     "00000111110000011111000001111100000111110000011111000111" +
-                     "00000111110000011111000001111100000111110000011111000111" +
-                     "00000111110000011111000001111100000111110000011111000111" +
-                     "00000111110000011111000001111100000111110000011111000111" +
-                     "00000111110000011111000001111100000111110000011111000111";
+                "00000111110000011111000001111100000111110000011111000111" +
+                "00000111110000011111000001111100000111110000011111000111" +
+                "00000111110000011111000001111100000111110000011111000111" +
+                "00000111110000011111000001111100000111110000011111000111" +
+                "00000111110000011111000001111100000111110000011111000111" +
+                "00000111110000011111000001111100000111110000011111000111";
 
-        ArrayList<Pair<Integer,Integer>> suggestedEvents = findHoles(one,two);
-        int a=3;
+        ArrayList<Pair<Integer, Integer>> suggestedEvents = findHoles(personOneCalendarValue, personTwoCalendarValue);
+        int a = 3;
     }
 
     /*Takes two strings of zeros and ones, converts them into 2D arrays,
@@ -109,7 +116,7 @@ public class CreateEvent extends AppCompatActivity {
     * pairs that represent the starting point and duration of the "runs"
     * of zeros representing free time.*/
 
-    private ArrayList<Pair<Integer,Integer>> findHoles(String person1, String person2){
+    private ArrayList<Pair<Integer, Integer>> findHoles(String person1, String person2) {
 
         //NOTE: This assumes that the two users' "day0" are the same.
 
@@ -117,27 +124,27 @@ public class CreateEvent extends AppCompatActivity {
         //Add the two strings together
         int i;
         int[] added = new int[NUM_PERIODS];
-        for(i=0; i<NUM_PERIODS; i++){
-            int busyness = (int)person1.charAt(i) + (int)person2.charAt(i);
+        for (i = 0; i < NUM_PERIODS; i++) {
+            int busyness = (int) person1.charAt(i) + (int) person2.charAt(i);
             added[i] = busyness;
         }
 
-        ArrayList<Pair<Integer,Integer>> openings = new ArrayList<Pair<Integer, Integer>>();
+        ArrayList<Pair<Integer, Integer>> openings = new ArrayList<Pair<Integer, Integer>>();
         boolean isNewRun = true;
-        int j=0;  //j=beginning of current "run"
-        int k=0;  //k=length of current run
+        int j = 0;  //j=beginning of current "run"
+        int k = 0;  //k=length of current run
 
-        for(i=0;i<NUM_PERIODS;i++){
-            if(i==0){
+        for (i = 0; i < NUM_PERIODS; i++) {
+            if (i == 0) {
                 //the slot at i is free
-                if(isNewRun){
+                if (isNewRun) {
                     //if it's a new run, set j and update isNewRun
                     j = i;
                     isNewRun = false;
                 }
                 k++; //regardless, increment the length of current run
             } else {
-                Pair<Integer,Integer> pair = new Pair<>(j,k);
+                Pair<Integer, Integer> pair = new Pair<>(j, k);
                 openings.add(pair);
                 k = 0;
                 isNewRun = true;
@@ -146,8 +153,7 @@ public class CreateEvent extends AppCompatActivity {
         return openings;
     }
 
-    private String getCalendarString(final String nameOfPerson){
-        String calendarValue = "";
+    private void getCalendarString(final String nameOfPerson, final int personNum) {
 
         // Instantiate the RequestQueue.
         RequestQueue queue = Volley.newRequestQueue(this);
@@ -157,13 +163,30 @@ public class CreateEvent extends AppCompatActivity {
         StringRequest stringRequest = new StringRequest(Request.Method.POST, url, new Response.Listener<String>() {
             @Override
             public void onResponse(String response) {
+                String calendarValue = "";
                 Log.d(TAG, "Calendar String Retrieval Response: " + response.toString());
+                try {
+
+                    JsonObject jsonObject = new JsonParser().parse(response).getAsJsonObject();
+                    calendarValue = jsonObject.get("calendar_value").getAsString();
+                    Log.i(TAG, calendarValue);
+
+
+                } catch (Exception ex) {
+                    ex.printStackTrace();
+                }
+
+                if (personNum == 1) {
+                    personOneCalendarValue = calendarValue;
+                } else if (personNum == 2) {
+                    personOneCalendarValue = calendarValue;
+                }
 
             }
         }, new Response.ErrorListener() {
             @Override
             public void onErrorResponse(VolleyError volleyError) {
-                Log.i(TAG,"Volley Error ................." + volleyError.getMessage());
+                Log.i(TAG, "Volley Error ................." + volleyError.getMessage());
             }
         }) {
             @Override
@@ -177,6 +200,5 @@ public class CreateEvent extends AppCompatActivity {
         queue.add(stringRequest);
 
 
-        return calendarValue;
     }
 }
