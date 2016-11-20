@@ -1,6 +1,5 @@
 package com.auth0.logindemo;
 
-import android.content.Intent;
 import android.os.Bundle;
 import android.support.v7.app.AppCompatActivity;
 import android.support.v7.widget.LinearLayoutManager;
@@ -20,16 +19,16 @@ public class  MainActivity extends AppCompatActivity {
 
     static String TAG = "MAIN_ACTIVITY";
 
-    public static final int UNSEEN = 0;
-    public static final int SEEN = 1;
-    public static final int ACCEPTED = 2;
+    public static final int INBOUND = 0;
+    public static final int DONE = 1;
+    public static final int BROADCAST = 2;
 
     private RecyclerView mRecyclerView;
     private CustomAdapter mAdapter;
     private RecyclerView.LayoutManager mLayoutManager;
     private String[] mDataset = {"29 degrees", "Seahawks 24 - 27 Bengals",
             "Flash missing, vanishes in crisis", "Half Life 3 announced"};
-    private int mDataSetTypes[] = {UNSEEN, UNSEEN, UNSEEN, UNSEEN}; //view types
+    private int mDataSetTypes[] = {INBOUND, INBOUND, BROADCAST, DONE}; //view types
 
 
 

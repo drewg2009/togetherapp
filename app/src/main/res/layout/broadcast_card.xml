@@ -108,7 +108,7 @@
                     android:textAppearance="@style/TextAppearance.AppCompat.Medium.Inverse" />
 
                 <TextView
-                    android:text="3:00 PM  |  Accepted"
+                    android:text="3:00 PM  |  By C-bus Yogis"
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
                     android:id="@+id/inviter_Name"
