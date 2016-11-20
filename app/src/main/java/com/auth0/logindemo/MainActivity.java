@@ -1,5 +1,6 @@
 package com.auth0.logindemo;
 
+import android.content.Intent;
 import android.os.Bundle;
 import android.support.v7.app.AppCompatActivity;
 import android.support.v7.widget.LinearLayoutManager;
@@ -37,12 +38,15 @@ public class MainActivity extends AppCompatActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
 
+        //TODO remove this
+        startActivity(new Intent(this, Login.class));
+
         mRecyclerView = (RecyclerView) findViewById(R.id.recyclerView);
         mLayoutManager = new LinearLayoutManager(MainActivity.this);
-//        mRecyclerView.setLayoutManager(mLayoutManager);
+        mRecyclerView.setLayoutManager(mLayoutManager);
 //Adapter is created in the last step
         mAdapter = new CustomAdapter(mDataset, mDataSetTypes);
-//        mRecyclerView.setAdapter(mAdapter);
+        mRecyclerView.setAdapter(mAdapter);
 
         //final TextView logo = (TextView) findViewById(R.id.logo);
         //logo.setText("activity started!");

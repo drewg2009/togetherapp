@@ -68,16 +68,16 @@ public class CustomAdapter extends RecyclerView.Adapter<CustomAdapter.ViewHolder
                     .inflate(R.layout.pending_invite_card, viewGroup, false);
 
             return new WeatherViewHolder(v);
-        }  /*else if (viewType == SEEN) {
+        }  else if (viewType == SEEN) {
             v = LayoutInflater.from(viewGroup.getContext())
-                    .inflate(R.layout.news_card, viewGroup, false);
-            return new NewsViewHolder(v);
+                    .inflate(R.layout.pending_invite_card, viewGroup, false);
+            return new WeatherViewHolder(v);
         } else {
             v = LayoutInflater.from(viewGroup.getContext())
-                    .inflate(R.layout.score_card, viewGroup, false);
-            return new ScoreViewHolder(v);
-        } */
-        return null; //delete ASAP
+                    .inflate(R.layout.pending_invite_card, viewGroup, false);
+            return new WeatherViewHolder(v);
+        }
+
 
     }
 

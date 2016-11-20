@@ -53,7 +53,8 @@
         <activity android:name=".Login" />
         <activity android:name=".Settings" />
         <activity android:name=".Edit" />
-        <activity android:name=".CreateEvent"></activity>
+        <activity android:name=".CreateEvent" />
+        <activity android:name=".Signup"></activity>
     </application>
 
 </manifest>
