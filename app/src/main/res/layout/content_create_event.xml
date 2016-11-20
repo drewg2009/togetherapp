@@ -149,26 +149,10 @@
         android:layout_alignParentRight="true"
         android:layout_alignParentEnd="true" />
 
-<<<<<<< HEAD
-
-=======
->>>>>>> 2c3a359a6da7f03289f668f9d41cd6a4ecdcc977
-    <NumberPicker
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_centerVertical="true"
-        android:layout_alignParentLeft="true"
-        android:layout_alignParentStart="true"
-        android:id="@+id/numberPicker"
-        android:layout_toLeftOf="@+id/generateButton"
-        android:layout_toStartOf="@+id/generateButton" />
-
-
-<<<<<<< HEAD
 <TextView
 =======
     <TextView
->>>>>>> 2c3a359a6da7f03289f668f9d41cd6a4ecdcc977
+><![CDATA[>>>>>> 2c3a359a6da7f03289f668f9d41cd6a4ecdcc977
         android:text="How Long Would You Like to Meet?"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
@@ -177,21 +161,15 @@
         android:layout_alignParentLeft="true"
         android:layout_alignParentStart="true" />
 
-    <NumberPicker
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:id="@+id/numberPicker2"
-        android:layout_below="@+id/editText3"
-        android:layout_alignParentLeft="true"
-        android:layout_alignParentStart="true"
-        android:layout_marginTop="76dp" />
-        android:id="@+id/textView2"
+    android:id="@+id/textView2"
         android:layout_below="@+id/inviteeBox"
         android:layout_alignParentLeft="true"
         android:layout_alignParentStart="true"
         android:layout_marginTop="65dp"
         android:layout_alignParentRight="true"
         android:layout_alignParentEnd="true" />
+
+    ]]>
 
     <TextView
         android:text="By When Would You Like to Meet?"
@@ -205,9 +183,26 @@
         android:layout_alignParentRight="true"
         android:layout_alignParentEnd="true" />
 
+    <NumberPicker
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:id="@+id/numberPicker2"
+        android:layout_marginTop="76dp"
+        android:layout_below="@+id/numberPicker"
+        android:layout_toRightOf="@+id/"
+        android:layout_toEndOf="@+id/" />
 
+    <NumberPicker
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:id="@+id/numberPicker"
+        android:layout_above="@+id/generateButton" android:layout_alignParentLeft="true" android:layout_alignParentStart="tru
 
+ android:layout_marginBottom="267dp"/>
 
 
 </RelativeLayout>
+
+
+]]>
 
