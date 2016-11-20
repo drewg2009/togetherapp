@@ -1,7 +1,9 @@
 package com.auth0.logindemo;
 
 import android.content.Intent;
+import android.content.SharedPreferences;
 import android.net.Uri;
+import android.preference.PreferenceManager;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
 import android.util.Log;
@@ -32,10 +34,12 @@ public class Login extends AppCompatActivity {
     Button loginButton;
     Button signupButton;
     static String TAG = "LOGIN";
-
+    SharedPreferences preferences;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
+        preferences = PreferenceManager.getDefaultSharedPreferences(this);
+
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_login);
 
@@ -78,10 +82,24 @@ public class Login extends AppCompatActivity {
         RequestQueue queue = Volley.newRequestQueue(this);
         String url = "http://phplaravel-19273-43928-180256.cloudwaysapps.com/post/users/login";
 
+        final Intent main=new Intent(this, MainActivity.class);
         StringRequest stringRequest = new StringRequest(Request.Method.POST, url, new Response.Listener<String>() {
             @Override
             public void onResponse(String response) {
                 Log.d(TAG, "Login Response: " + response.toString());
+
+                if(!response.equals("false")){
+                    //storing user info locally on device
+                    SharedPreferences.Editor editor = preferences.edit();
+                    editor.putString("user", response);
+                    editor.apply();
+                    startActivity(main);
+                    finish();
+                }
+                else {
+                    Log.d(TAG, "Login failed: " + response.toString());
+                }
+
 
             }
         }, new Response.ErrorListener() {
