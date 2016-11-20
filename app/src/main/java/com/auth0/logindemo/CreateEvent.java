@@ -9,11 +9,39 @@ import java.util.ArrayList;
 
 public class CreateEvent extends AppCompatActivity {
 
-    private static int NUM_PERIODS = 392;
+    private static int NUM_PERIODS = 392;  //7 * 56 = 392 1's and 0's in each string
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
+
+
+        /*BEGIN pseudocode for the "create event" Activity*/
+
+        //on "Generate" button, pull the two names from the fields
+            //use two name fields for the MVP?  much easier that way
+
+        //using the "get Calendar string" function from Drew, get both users' avail strings
+
+        //create the list of "gaps" using findHoles
+
+        //using mod math, convert the integers to start/end times and duration
+            //modSP = start position mod 14 is number of 15m periods from 8am on day N
+            //day N is (start - modSP)/14
+
+            //start_time = now() + day_n + modSP*15m (Java.Date object)
+            //end_time = start_time + duration*15m
+
+        //weed out the entries whose durations are too small
+
+        //pass those values to some new Activity with cards?  same Activity, how to select?
+
+        //on select from there, add to invitation list on back end, somehow say "request sent"
+
+        //go back to the dashboard
+
+        /*END pseudocode for "create event" Activity*/
+
 
         setContentView(R.layout.activity_create_event);
         //set up sample strings
@@ -51,7 +79,6 @@ public class CreateEvent extends AppCompatActivity {
 
 
         //Add the two strings together
-        //7 * 56 = 392 1's and 0's in each string
         int i;
         int[] added = new int[NUM_PERIODS];
         for(i=0; i<NUM_PERIODS; i++){
