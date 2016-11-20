@@ -24,36 +24,6 @@
             android:layout_toRightOf="@+id/space"
             android:layout_toEndOf="@+id/space" />
 
-        <LinearLayout
-            android:orientation="vertical"
-            android:layout_width="wrap_content"
-            android:layout_height="match_parent"
-            android:layout_weight="1"
-            android:weightSum="1"
-            android:layout_alignParentTop="true"
-            android:layout_centerHorizontal="true">
-
-            <Space
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content"
-                android:layout_weight="0.54" />
-
-            <TextView
-                android:text="Dinner at Thurman's Cafe"
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content"
-                android:id="@+id/event_Title"
-                android:textAppearance="@style/TextAppearance.AppCompat.Medium.Inverse" />
-
-            <TextView
-                android:text="Invited by Luke M."
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content"
-                android:id="@+id/inviter_Name"
-                android:textAppearance="@style/TextAppearance.AppCompat.Small.Inverse" />
-
-        </LinearLayout>
-
         <RelativeLayout
             android:layout_width="match_parent"
             android:layout_height="match_parent"
@@ -102,6 +72,41 @@
             android:layout_alignParentRight="true"
             android:layout_alignParentEnd="true"
             android:layout_height="25dp" />
+
+        <LinearLayout
+            android:orientation="vertical"
+            android:layout_width="wrap_content"
+            android:layout_height="match_parent"
+            android:layout_weight="1"
+            android:weightSum="1"
+            android:layout_marginLeft="16dp"
+            android:layout_marginStart="16dp"
+            android:layout_alignParentTop="true"
+            android:layout_toRightOf="@+id/accentBlock"
+            android:layout_toEndOf="@+id/accentBlock">
+
+            <Space
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_weight="0.54" />
+
+            <TextView
+                android:text="Dinner at Thurman's Cafe"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:id="@+id/event_Title"
+                android:textAppearance="@style/TextAppearance.AppCompat.Medium.Inverse"
+                android:textAlignment="textStart" />
+
+            <TextView
+                android:text="Invited by Luke M."
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:id="@+id/inviter_Name"
+                android:textAppearance="@style/TextAppearance.AppCompat.Small.Inverse"
+                android:textAlignment="textStart" />
+
+        </LinearLayout>
 
     </RelativeLayout>
 
