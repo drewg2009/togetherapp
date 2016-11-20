@@ -10,4 +10,12 @@ public class Signup extends AppCompatActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_signup);
     }
+
+    private boolean signup(){
+        boolean flag = false;
+
+
+
+        return flag;
+    }
 }

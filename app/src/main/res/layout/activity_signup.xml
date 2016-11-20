@@ -21,23 +21,29 @@
             android:text="Let's Get Together" />
 
         <EditText
-            android:id="@+id/email"
+            android:id="@+id/signup_name"
+            android:hint="Full Name"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content" />
+
+        <EditText
+            android:id="@+id/signup_email"
             android:hint="Email address"
             android:layout_width="match_parent"
             android:layout_height="wrap_content" />
 
         <EditText
-            android:id="@+id/password"
+            android:id="@+id/signup_password"
             android:hint="Password"
             android:layout_width="match_parent"
             android:layout_height="wrap_content" />
 
-        <Button
-            android:id="@+id/loginButton"
+        <CheckBox
+            android:id="@+id/signup_broadcaster"
+            android:text="Are you a broadcaster?"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:text="Login" />
-
+            />
         <Button
             android:id="@+id/signupButton"
             android:layout_width="match_parent"
