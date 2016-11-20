@@ -9,7 +9,6 @@ import android.support.v7.app.AppCompatActivity;
 import android.support.v7.widget.LinearLayoutManager;
 import android.support.v7.widget.RecyclerView;
 import android.util.Log;
-import android.widget.SeekBar;
 import android.view.View;
 
 import com.android.volley.AuthFailureError;
@@ -109,7 +108,7 @@ public class MainActivity extends AppCompatActivity {
             }
         });
 
-        final Intent myEvents = new Intent(this, Signup.class);
+        final Intent myEvents = new Intent(this, MyEvents.class);
         myEventsButton.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
@@ -117,7 +116,7 @@ public class MainActivity extends AppCompatActivity {
             }
         });
 
-        final Intent createEvent = new Intent(this, Signup.class);
+        final Intent createEvent = new Intent(this, CreateEvent.class);
         newEventButton.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
