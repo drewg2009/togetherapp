@@ -90,7 +90,7 @@
         </RelativeLayout>
 
         <ImageButton
-            card_view:srcCompat="@drawable/chevron_dark"
+            card_view:srcCompat="@drawable/com_auth0_lock_ic_chevron"
             android:id="@+id/expandButton"
             android:cropToPadding="false"
             android:layout_marginRight="18dp"
