@@ -73,8 +73,6 @@ public class CustomAdapter extends RecyclerView.Adapter<CustomAdapter.ViewHolder
                     .inflate(R.layout.broadcast_card, viewGroup, false);
             return new BroadcastHolder(v);
         }
-
-
     }
 
     @Override

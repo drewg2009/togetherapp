@@ -3,10 +3,12 @@ package com.auth0.logindemo;
 import android.content.SharedPreferences;
 import android.os.Bundle;
 import android.preference.PreferenceManager;
+import android.support.design.widget.FloatingActionButton;
 import android.support.v7.app.AppCompatActivity;
 import android.support.v7.widget.LinearLayoutManager;
 import android.support.v7.widget.RecyclerView;
 import android.util.Log;
+import android.view.View;
 
 import com.android.volley.AuthFailureError;
 import com.android.volley.Request;
@@ -41,6 +43,9 @@ public class MainActivity extends AppCompatActivity {
     SharedPreferences preferences;
     String currentEventString = "";
 
+    private FloatingActionButton actionButton;
+    private boolean menuState = false;
+
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         invitedDB.add(new Entry("hey", "", "", "", "", "", "", "", "", "", "u"));
@@ -56,12 +61,6 @@ public class MainActivity extends AppCompatActivity {
         //Adapter is created in the last step
         mAdapter = new CustomAdapter(invitedDB);
         mRecyclerView.setAdapter(mAdapter);
-
-
-        //final TextView logo = (TextView) findViewById(R.id.logo);
-        //logo.setText("activity started!");
-        Log.i(TAG, "activity started!");
-
         setTitle("Together | Dashboard");
 
         preferences = PreferenceManager.getDefaultSharedPreferences(this);
@@ -69,6 +68,21 @@ public class MainActivity extends AppCompatActivity {
         JsonObject jsonObject = new JsonParser().parse(user).getAsJsonObject();
         int id = jsonObject.get("id").getAsInt();
         Log.i(TAG, "fetched user id: " + id);
+
+        actionButton = (FloatingActionButton) findViewById(R.id.actionButton);
+        actionButton.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                menuState = !menuState;
+                if (menuState) {
+                    //SHOW
+                } else {
+                    //HIDE
+                }
+            }
+        });
+
+
 
         getInvitations(id);
 
@@ -167,6 +181,7 @@ public class MainActivity extends AppCompatActivity {
         return false;
 
     }
+
 
 
 
