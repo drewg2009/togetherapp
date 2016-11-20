@@ -18,7 +18,7 @@
         <ImageView
             android:layout_width="70dp"
             android:layout_height="match_parent"
-            card_view:srcCompat="@color/cardview_dark_background"
+            card_view:srcCompat="@color/cardview_shadow_start_color"
             android:layout_alignParentTop="true"
             android:id="@+id/accentBlock"
             android:layout_toRightOf="@+id/space"
@@ -98,7 +98,7 @@
                 android:textAlignment="textStart" />
 
             <TextView
-                android:text="Invited by Luke M."
+                android:text="3:00 PM  |  Accepted"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:id="@+id/inviter_Name"

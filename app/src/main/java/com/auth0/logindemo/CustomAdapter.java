@@ -33,26 +33,24 @@ public class CustomAdapter extends RecyclerView.Adapter<CustomAdapter.ViewHolder
         }
     }
 
- /*   public class ScoreViewHolder extends ViewHolder {
+    public class AcceptedHolder extends ViewHolder {
         TextView score;
 
-        public ScoreViewHolder(View v) {
+        public AcceptedHolder(View v) {
             super(v);
-            this.score = (TextView) v.findViewById(R.id.score);
+            this.score = (TextView) v.findViewById(R.id.event_Title);
         }
     }
 
-    public class NewsViewHolder extends ViewHolder {
+    public class BroadcastHolder extends ViewHolder {
         TextView headline;
-        Button read_more;
 
-        public NewsViewHolder(View v) {
+        public BroadcastHolder(View v) {
             super(v);
-            this.headline = (TextView) v.findViewById(R.id.headline);
-            this.read_more = (Button) v.findViewById(R.id.read_more);
+            this.headline = (TextView) v.findViewById(R.id.event_Title);
         }
     }
-    */
+
 
 
     public CustomAdapter(String[] dataSet, int[] dataSetTypes) {
@@ -70,11 +68,11 @@ public class CustomAdapter extends RecyclerView.Adapter<CustomAdapter.ViewHolder
             return new CollabHolder(v);
         }  else if (viewType == SEEN) {
             v = LayoutInflater.from(viewGroup.getContext())
-                    .inflate(R.layout.pending_invite_card, viewGroup, false);
+                    .inflate(R.layout.accepted_card, viewGroup, false);
             return new CollabHolder(v);
         } else {
             v = LayoutInflater.from(viewGroup.getContext())
-                    .inflate(R.layout.pending_invite_card, viewGroup, false);
+                    .inflate(R.layout.broadcast_card, viewGroup, false);
             return new CollabHolder(v);
         }
 
@@ -87,14 +85,14 @@ public class CustomAdapter extends RecyclerView.Adapter<CustomAdapter.ViewHolder
             CollabHolder holder = (CollabHolder) viewHolder;
             holder.temp.setText(mDataSet[position]);
         }
-        /*else if (viewHolder.getItemViewType() == SEEN) {
-            NewsViewHolder holder = (NewsViewHolder) viewHolder;
+        else if (viewHolder.getItemViewType() == SEEN) {
+            BroadcastHolder holder = (BroadcastHolder) viewHolder;
             holder.headline.setText(mDataSet[position]);
         }
         else {
-            ScoreViewHolder holder = (ScoreViewHolder) viewHolder;
+            AcceptedHolder holder = (AcceptedHolder) viewHolder;
             holder.score.setText(mDataSet[position]);
-        }*/
+        }
     }
 
     @Override
