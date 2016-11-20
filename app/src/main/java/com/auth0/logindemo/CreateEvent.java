@@ -1,5 +1,6 @@
 package com.auth0.logindemo;
 
+import android.content.Context;
 import android.content.DialogInterface;
 import android.content.Intent;
 import android.content.SharedPreferences;
@@ -13,6 +14,7 @@ import android.util.Pair;
 import android.view.View;
 import android.widget.Button;
 import android.widget.EditText;
+import android.widget.Toast;
 
 import com.android.volley.AuthFailureError;
 import com.android.volley.Request;
@@ -96,16 +98,17 @@ public class CreateEvent extends AppCompatActivity {
                         ArrayList<Pair<Integer, Integer>> suggestedEvents = findHoles(preferences.getString("personOneValue",""), preferences.getString("personTwoValue",""));
                         Log.i(TAG, "Suggested Events: "+suggestedEvents.toString());
 
-                        AlertDialog alertDialog = new AlertDialog.Builder(getApplicationContext()).create();
-                        alertDialog.setTitle("Pending Invite");
-                        alertDialog.setMessage("Alert message to be shown");
-                        alertDialog.setButton(AlertDialog.BUTTON_NEUTRAL, "OK",
-                                new DialogInterface.OnClickListener() {
-                                    public void onClick(DialogInterface dialog, int which) {
-                                        dialog.dismiss();
-                                    }
-                                });
-                        alertDialog.show();
+                        Context context = getApplicationContext();
+                        CharSequence text = "Hello toast!";
+                        int duration = Toast.LENGTH_LONG;
+
+
+                        Toast toast = Toast.makeText(context, suggestedEvents.get(0).first+ " "+suggestedEvents.get(0).second, duration);
+                        toast.show();
+
+
+                        Toast toast2 = Toast.makeText(context, "We found two openings in your schedule. \n\n Monday November 22, 2016 at 8 am for 1 hour",duration);
+                        toast2.show();
                     }
                 }, 2000);
                 Log.i(TAG,preferences.getString("personOneValue",""));
