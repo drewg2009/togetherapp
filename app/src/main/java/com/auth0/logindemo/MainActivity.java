@@ -134,6 +134,11 @@ public class MainActivity extends AppCompatActivity {
 
     }
 
+    private boolean to() {
+        boolean flag = false;
+
+        return flag;
+    }
 
     private boolean getInvitations(final int user_id) {
         boolean flag = false;

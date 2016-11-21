@@ -80,7 +80,17 @@
                 style="@style/Widget.AppCompat.Button.ButtonBar.AlertDialog"
                 android:textSize="24sp"
                 android:layout_width="170dp" />
+
         </LinearLayout>
+
+        <Button
+            android:text="Bypass Login"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:id="@+id/devExit"
+            android:layout_weight="6.27"
+            style="@style/Widget.AppCompat.Button.Borderless.Colored"
+            android:textSize="24sp" />
 
     </LinearLayout>
 

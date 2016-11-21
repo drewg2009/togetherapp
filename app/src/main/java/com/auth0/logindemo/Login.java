@@ -2,10 +2,9 @@ package com.auth0.logindemo;
 
 import android.content.Intent;
 import android.content.SharedPreferences;
-import android.net.Uri;
+import android.os.Bundle;
 import android.preference.PreferenceManager;
 import android.support.v7.app.AppCompatActivity;
-import android.os.Bundle;
 import android.util.Log;
 import android.view.View;
 import android.widget.Button;
@@ -16,37 +15,43 @@ import com.android.volley.Request;
 import com.android.volley.RequestQueue;
 import com.android.volley.Response;
 import com.android.volley.VolleyError;
-import com.android.volley.VolleyLog;
-import com.android.volley.toolbox.JsonObjectRequest;
 import com.android.volley.toolbox.StringRequest;
 import com.android.volley.toolbox.Volley;
 
-import org.json.JSONException;
-import org.json.JSONObject;
-
 import java.util.HashMap;
 import java.util.Map;
-
-import static android.provider.ContactsContract.CommonDataKinds.Website.URL;
 
 public class Login extends AppCompatActivity {
 
     Button loginButton;
     Button signupButton;
+    Button devExit;
     static String TAG = "LOGIN";
     SharedPreferences preferences;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
 
-
         preferences = PreferenceManager.getDefaultSharedPreferences(this);
 
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_login);
 
+        ////////////////////////////////////////////////////////////
+        devExit = (Button) findViewById(R.id.devExit);
+        final Intent bypass = new Intent(this, MainActivity.class);
+        devExit.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                startActivity(bypass);
+            }
+        });
+        /////TO BE REMOVED///////////////////////////////////////////
+
+
         loginButton = (Button) findViewById(R.id.loginButton);
         signupButton = (Button) findViewById(R.id.signupButton);
+
 
         loginButton.setOnClickListener(new View.OnClickListener() {
             @Override
@@ -54,6 +59,7 @@ public class Login extends AppCompatActivity {
                 login();
             }
         });
+
 
         //to signup page
         final Intent signup = new Intent(this, Signup.class);
@@ -63,6 +69,7 @@ public class Login extends AppCompatActivity {
                 startActivity(signup);
             }
         });
+
     }
 
     private boolean login() {
@@ -85,6 +92,8 @@ public class Login extends AppCompatActivity {
         String url = "http://phplaravel-19273-43928-180256.cloudwaysapps.com/post/users/login";
 
         final Intent main=new Intent(this, MainActivity.class);
+        //startActivity(main); //IGNORING THE LOGIN
+
         StringRequest stringRequest = new StringRequest(Request.Method.POST, url, new Response.Listener<String>() {
             @Override
             public void onResponse(String response) {
